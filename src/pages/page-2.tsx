@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Typography from '@material-ui/core/Typography';
 import Layout from '../layout';
 import { AppLink } from '../components/AppLink';
 import SimpleCounterApp from '../components/SimpleCounterApp';
@@ -15,7 +16,7 @@ class SecondPage extends React.PureComponent<Props> {
     console.log(location);
     return (
       <Layout title="Second Page" location={location} appState={appState}>
-        <h1>Hi from the second page</h1>
+        <Typography variant="h2" gutterBottom>Hi from the second page</Typography>
         <SimpleCounterApp />
         <p>Welcome to page 2</p>
         <AppLink to="/" appState={appState}>

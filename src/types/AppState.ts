@@ -15,6 +15,6 @@ export const initialAppState: AppState = {
 };
 
 export const createInitialAppState = (location: LocationWithState) =>
-  location.state === null || location.state.appState === undefined
+  !location.state || !location.state.appState
     ? initialAppState
     : location.state.appState;

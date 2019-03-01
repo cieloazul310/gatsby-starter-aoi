@@ -8,6 +8,9 @@ import IconButton from '@material-ui/core/IconButton';
 // icons
 import CloseIcon from '@material-ui/icons/Close';
 
+import Contents from './Contents';
+import { AppState, LocationWithState } from '../../types';
+
 const styles = (theme: Theme) =>
   createStyles({
     toolbar: {
@@ -20,9 +23,11 @@ const styles = (theme: Theme) =>
 
 interface Props extends WithStyles<typeof styles> {
   handleDrawer: () => any;
+  location: LocationWithState;
+  appState: AppState;
 }
 
-const DrawerInner: React.FC<Props> = ({ classes, handleDrawer }: Props) => (
+const DrawerInner: React.FC<Props> = ({ classes, location, appState, handleDrawer }: Props) => (
   <div>
     <div className={classes.toolbar}>
       <Hidden mdUp>
@@ -32,6 +37,7 @@ const DrawerInner: React.FC<Props> = ({ classes, handleDrawer }: Props) => (
       </Hidden>
     </div>
     <Divider />
+    <Contents location={location} appState={appState} />
   </div>
 );
 

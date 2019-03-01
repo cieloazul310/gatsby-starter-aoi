@@ -60,11 +60,11 @@ const styles = (theme: Theme) =>
       width: '100%',
       maxWidth: 800,
       margin: 'auto',
-      padding: theme.spacing.unit * 2,
+      padding: `${theme.spacing.unit * 4}px ${theme.spacing.unit * 2}px`,
     },
     footer: {
       textAlign: 'center',
-      padding: theme.spacing.unit * 2,
+      padding: `${theme.spacing.unit * 4}px ${theme.spacing.unit * 2}px`,
     },
   });
 
@@ -158,7 +158,7 @@ class Layout extends React.Component<Props, State> {
                   onClose={this._toggleDrawer}
                   open={drawerOpen}
                 >
-                  <DrawerInner handleDrawer={this._toggleDrawer} />
+                  <DrawerInner location={location} appState={appState} handleDrawer={this._toggleDrawer} />
                 </Drawer>
               </Hidden>
               <Hidden smDown>
@@ -167,7 +167,7 @@ class Layout extends React.Component<Props, State> {
                   variant="permanent"
                   open
                 >
-                  <DrawerInner handleDrawer={this._toggleDrawer} />
+                  <DrawerInner location={location} appState={appState} handleDrawer={this._toggleDrawer} />
                 </Drawer>
               </Hidden>
             </nav>

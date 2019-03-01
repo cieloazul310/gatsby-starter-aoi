@@ -3,6 +3,7 @@ import { graphql } from 'gatsby';
 import withStyles, { WithStyles } from '@material-ui/core/styles/withStyles';
 import createStyles from '@material-ui/core/styles/createStyles';
 import { Theme } from '@material-ui/core/styles/createMuiTheme';
+import Typography from '@material-ui/core/Typography';
 import Layout from '../layout';
 import { AppLink } from '../components/AppLink';
 import { LocationWithState, createInitialAppState } from '../types';
@@ -27,11 +28,12 @@ class IndexPage extends React.PureComponent<Props> {
     const appState = createInitialAppState(location);
     return (
       <Layout title="Index Page" location={location} appState={appState}>
-        <h1>Hi people</h1>
-        <p>
+        <Typography variant="h2" gutterBottom>Gatsby Starter TypeScript App Shell</Typography>
+        <Typography variant="h5" gutterBottom>
           Welcome to your new{' '}
           <strong>{this.props.data.site.siteMetadata.title}</strong> site.
-        </p>
+        </Typography>
+        <Typography variant="h4" gutterBottom>Features</Typography>
         <p>Now go build something great.</p>
         <p>Now go build something great.</p>
         <p>Now go build something great.</p>

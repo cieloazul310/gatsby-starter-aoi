@@ -3,8 +3,8 @@ const deepOrange = require('@material-ui/core/colors/deepOrange').default;
 
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Typescript Material-UI Starter`,
-    description: 'Gatsby TypeScript Material-UI Starter example site.',
+    title: `Gatsby Starter Typescript App Shell`,
+    description: 'A GatsbyJS starter using Material Design written with TypeScript.',
     author: {
       name: 'cieloazul310'
     }
