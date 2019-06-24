@@ -10,22 +10,18 @@ module.exports = {
     }
   },
   plugins: [
+    'gatsby-plugin-top-layout',
+    {
+      resolve: 'gatsby-plugin-material-ui',
+      // If you want to use styled components you should change the injection order.
+      options: {
+        // stylesProvider: {
+        //   injectFirst: true,
+        // },
+      }
+    },
     `gatsby-plugin-react-helmet`,
     // Add typescript stack into webpack
-    `gatsby-plugin-typescript`,
-    {
-      resolve: `gatsby-plugin-material-ui`,
-      options: {
-        theme: {
-          palette: {
-            primary: teal,
-            secondary: deepOrange
-          },
-          typography: {
-            useNextVariants: true
-          }
-        }
-      },
-    },
-  ],
-}
+    `gatsby-plugin-typescript`
+  ]
+};

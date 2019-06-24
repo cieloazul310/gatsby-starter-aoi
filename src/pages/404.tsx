@@ -1,10 +1,28 @@
 import * as React from 'react';
+import Typography from '@material-ui/core/Typography';
+import Layout from '../layout';
+import { AppLink } from '../components/AppLink';
+import { LocationWithState, createInitialAppState } from '../types';
 
-const NotFoundPage = () => (
-  <div>
-    <h1>NOT FOUND</h1>
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-  </div>
-);
+interface Props {
+  location: LocationWithState;
+}
+
+const NotFoundPage: React.FC<Props> = ({ location }: Props) => {
+  console.log(location);
+  const appState = createInitialAppState(location);
+  return (
+    <Layout title="Not Found" location={location} appState={appState}>
+      <Typography variant="h2" gutterBottom>NOT FOUND</Typography>
+      <Typography variant="h5" gutterBottom>
+        <code>{location.pathname}</code>{' '}
+        doesn&#39;t exist.
+      </Typography>
+      <AppLink to="/" appState={appState}>
+        Top Page
+      </AppLink>
+    </Layout>
+  );
+}
 
 export default NotFoundPage;

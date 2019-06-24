@@ -1,16 +1,11 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
-import withStyles, { WithStyles } from '@material-ui/core/styles/withStyles';
-import createStyles from '@material-ui/core/styles/createStyles';
-import { Theme } from '@material-ui/core/styles/createMuiTheme';
 import Typography from '@material-ui/core/Typography';
 import Layout from '../layout';
 import { AppLink } from '../components/AppLink';
-import { LocationWithState, createInitialAppState } from '../types';
+import { LocationWithState, createInitialAppState, AppState } from '../types';
 
-const styles = (theme: Theme) => createStyles({});
-
-interface Props extends WithStyles<typeof styles> {
+interface Props {
   data: {
     site: {
       siteMetadata: {
@@ -21,19 +16,26 @@ interface Props extends WithStyles<typeof styles> {
   location: LocationWithState;
 }
 
-class IndexPage extends React.PureComponent<Props> {
+type State = AppState;
+
+class IndexPage extends React.Component<Props, State> {
+  readonly state = createInitialAppState(this.props.location);
+
   public render() {
-    const { classes, location } = this.props;
+    const { location } = this.props;
     console.log(location);
     const appState = createInitialAppState(location);
     return (
       <Layout title="Index Page" location={location} appState={appState}>
-        <Typography variant="h2" gutterBottom>Gatsby Starter TypeScript App Shell</Typography>
-        <Typography variant="h5" gutterBottom>
-          Welcome to your new{' '}
-          <strong>{this.props.data.site.siteMetadata.title}</strong> site.
+        <Typography variant="h2" gutterBottom>
+          Gatsby Starter TypeScript App Shell
         </Typography>
-        <Typography variant="h4" gutterBottom>Features</Typography>
+        <Typography variant="h5" gutterBottom>
+          Welcome to your new <strong>{this.props.data.site.siteMetadata.title}</strong> site.
+        </Typography>
+        <Typography variant="h4" gutterBottom>
+          Features
+        </Typography>
         <p>Now go build something great.</p>
         <p>Now go build something great.</p>
         <p>Now go build something great.</p>
@@ -77,7 +79,7 @@ class IndexPage extends React.PureComponent<Props> {
   }
 }
 
-export default withStyles(styles)(IndexPage);
+export default IndexPage;
 
 export const pageQuery = graphql`
   query IndexQuery {

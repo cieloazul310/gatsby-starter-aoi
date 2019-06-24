@@ -11,24 +11,17 @@ interface Props {
   appState: AppState;
 }
 
-export const AppLink: React.FC<Props> = ({
-  className,
-  children,
-  to,
-  appState,
-}: Props) => (
-  <Link className={classNames(className)} to={to} state={{ appState }}>
-    {children}
-  </Link>
-);
+export function AppLink({ className, children, to, appState }: Props) {
+  return (
+    <Link className={classNames(className)} to={to} state={{ appState }}>
+      {children}
+    </Link>
+  );
+}
 
-export const appNavigate = (
-  to: string,
-  appState: AppState,
-  options: NavigateOptions<{}> = {}
-) => {
+export function appNavigate(to: string, appState: AppState, options: NavigateOptions<{}> = {}) {
   navigate(to, {
     ...options,
-    state: { appState },
+    state: { appState }
   });
-};
+}

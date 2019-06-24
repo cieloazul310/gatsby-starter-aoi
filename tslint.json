@@ -1,10 +1,12 @@
 {
     "defaultSeverity": "error",
     "extends": [
-        "tslint:recommended"
+        "tslint:recommended",
+        "tslint-config-prettier"
     ],
     "jsRules": {},
     "rules": {
+        "prettier": true,
         "interface-name": [ "never-prefix" ],
         "member-access": [
             false
@@ -17,5 +19,5 @@
         ],
         "no-var-requires": false
     },
-    "rulesDirectory": []
+    "rulesDirectory": ["tslint-plugin-prettier"]
 }

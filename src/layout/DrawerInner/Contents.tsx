@@ -7,7 +7,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 // icons
 import Home from '@material-ui/icons/Home';
 import MusicNote from '@material-ui/icons/MusicNote';
-import { AppLink } from '../AppLink';
+import { AppLink } from '../../components/AppLink';
 import { LocationWithState, AppState } from '../../types';
 
 interface Props {
@@ -22,7 +22,9 @@ interface ListItemAppLinkProps extends Props {
 }
 
 class ListItemAppLink extends React.PureComponent<ListItemAppLinkProps> {
-  renderLink = (itemProps: any) => <AppLink to={this.props.to} appState={this.props.appState} {...itemProps} />;
+  renderLink = React.forwardRef((itemProps: any, ref) => (
+    <AppLink to={this.props.to} appState={this.props.appState} {...itemProps} innerRef={ref} />
+  ));
 
   render() {
     const { icon, primary, to, location } = this.props;
@@ -35,11 +37,13 @@ class ListItemAppLink extends React.PureComponent<ListItemAppLinkProps> {
   }
 }
 
-const Contents: React.FC<Props> = ({ location, appState }: Props) => (
-  <List subheader={<ListSubheader>Contents</ListSubheader>}>
-    <ListItemAppLink to="/" primary="Top" location={location} appState={appState} icon={<Home />} />
-    <ListItemAppLink to="/page-2/" primary="Page 2" location={location} appState={appState} icon={<MusicNote />} />
-  </List>
-);
+function Contents({ location, appState }: Props) {
+  return (
+    <List subheader={<ListSubheader>Contents</ListSubheader>}>
+      <ListItemAppLink to="/" primary="Top" location={location} appState={appState} icon={<Home />} />
+      <ListItemAppLink to="/page-2/" primary="Page 2" location={location} appState={appState} icon={<MusicNote />} />
+    </List>
+  );
+}
 
 export default Contents;
