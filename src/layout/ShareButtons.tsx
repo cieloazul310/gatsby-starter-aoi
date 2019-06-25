@@ -2,7 +2,8 @@ import * as React from 'react';
 import classNames from 'classnames';
 import IconButton, { IconButtonProps } from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
-import FabIcon from '../components/FabIcon';
+//import FabIcon from '../components/FabIcon';
+import { TwitterIcon, FacebookIcon, GithubIcon } from '../components/FabIcon';
 import { LocationWithState } from '../types';
 import { shareOnTwitter, shareOnFacebook } from '../utils/sharer';
 import { IconProps } from '@material-ui/core/Icon';
@@ -25,17 +26,20 @@ function ShareButtons({ className, title, location, fontSize, color }: Props) {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <FabIcon icon="twitter" fontSize={fontSize || 'default'} />
+          {/*<FabIcon icon="twitter" fontSize={fontSize || 'default'} />*/}
+          <TwitterIcon fontSize={fontSize || 'default'} />
         </IconButton>
       </Tooltip>
       <Tooltip title="Share on Facebook">
         <IconButton color={color || 'default'} href={shareOnFacebook({ url: location.href })} target="_blank" rel="noopener noreferrer">
-          <FabIcon icon="facebook-f" fontSize={fontSize || 'default'} />
+          <FacebookIcon fontSize={fontSize || 'default'} />
+          {/*<FabIcon icon="facebook-f" fontSize={fontSize || 'default'} />*/}
         </IconButton>
       </Tooltip>
       <Tooltip title="GitHub">
         <IconButton color={color || 'default'} href="https://github.com" target="_blank" rel="noopener noreferrer">
-          <FabIcon icon="github" fontSize={fontSize || 'default'} />
+          <GithubIcon fontSize={fontSize || 'default'} />
+          {/*<FabIcon icon="github" fontSize={fontSize || 'default'} />*/}
         </IconButton>
       </Tooltip>
     </div>

@@ -20,7 +20,6 @@ interface Props {
 function IndexPage({ data, location }: Props) {
   console.log(location);
   const [appState, dispatch] = React.useReducer(reducer, createInitialAppState(location));
-  //const appState = createInitialAppState(location);
 
   return (
     <Layout title="Index Page" location={location} appState={appState} dispatch={dispatch}>
