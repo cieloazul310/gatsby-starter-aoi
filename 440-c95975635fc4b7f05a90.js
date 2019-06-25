@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[440],{260:function(n,i,o){"use strict";o.r(i),o.d(i,"definition",function(){}),o.d(i,"faAmazon",function(){}),o.d(i,"prefix",function(){}),o.d(i,"iconName",function(){}),o.d(i,"width",function(){}),o.d(i,"height",function(){}),o.d(i,"ligatures",function(){}),o.d(i,"unicode",function(){}),o.d(i,"svgPathData",function(){})}}]);
+//# sourceMappingURL=440-c95975635fc4b7f05a90.js.map

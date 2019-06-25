@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[386],{1009:function(i,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var a=[],o="M384 32h-64l-80.7 192h-94.5L64 32H0l48 112H0v48h68.5l13.8 32H0v48h102.8L192 480l89.2-208H384v-48h-82.3l13.8-32H384v-48h-48l48-112zM192 336l-27-64h54l-27 64z";e.definition={prefix:"fab",iconName:"viacoin",icon:[384,512,a,"f237",o]},e.faViacoin=e.definition,e.prefix="fab",e.iconName="viacoin",e.width=384,e.height=512,e.ligatures=a,e.unicode="f237",e.svgPathData=o}}]);
+//# sourceMappingURL=386-2b866338403d6475c04a.js.map

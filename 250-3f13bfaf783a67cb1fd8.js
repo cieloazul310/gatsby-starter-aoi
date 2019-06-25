@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[250],{737:function(i,e,o){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var n=[],a="M356 241.8l36.7 23.7V480l-133-83.8L356 241.8zM440 75H226.3l-23 37.8 153.5 96.5L440 75zm-89 142.8L55.2 32v214.5l46 29L351 217.8zM97 294.2L8 437h213.7l125-200.5L97 294.2z";e.definition={prefix:"fab",iconName:"modx",icon:[448,512,n,"f285",a]},e.faModx=e.definition,e.prefix="fab",e.iconName="modx",e.width=448,e.height=512,e.ligatures=n,e.unicode="f285",e.svgPathData=a}}]);
+//# sourceMappingURL=250-3f13bfaf783a67cb1fd8.js.map

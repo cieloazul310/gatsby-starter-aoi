@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[271],{779:function(e,i,n){"use strict";Object.defineProperty(i,"__esModule",{value:!0});var a=[],o="M512 194.8c0 101.3-82.4 183.8-183.8 183.8-101.7 0-184.4-82.4-184.4-183.8 0-101.6 82.7-184.3 184.4-184.3C429.6 10.5 512 93.2 512 194.8zM0 501.5h90v-491H0v491z";i.definition={prefix:"fab",iconName:"patreon",icon:[512,512,a,"f3d9",o]},i.faPatreon=i.definition,i.prefix="fab",i.iconName="patreon",i.width=512,i.height=512,i.ligatures=a,i.unicode="f3d9",i.svgPathData=o}}]);
+//# sourceMappingURL=271-5f97178183ba2be8b23e.js.map
