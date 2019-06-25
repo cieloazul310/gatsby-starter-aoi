@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[422],{1080:function(n,e,i){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var a=[],t="M129.5 512V345.9L18.5 48h55.8l81.8 229.7L250.2 0h51.3L180.8 347.8V512h-51.3z";e.definition={prefix:"fab",iconName:"yandex-international",icon:[320,512,a,"f414",t]},e.faYandexInternational=e.definition,e.prefix="fab",e.iconName="yandex-international",e.width=320,e.height=512,e.ligatures=a,e.unicode="f414",e.svgPathData=t}}]);
+//# sourceMappingURL=422-767b5323650d8dff48af.js.map
