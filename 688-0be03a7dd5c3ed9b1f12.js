@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[688],{756:function(n,i,o){"use strict";o.r(i),o.d(i,"definition",function(){}),o.d(i,"faOdnoklassniki",function(){}),o.d(i,"prefix",function(){}),o.d(i,"iconName",function(){}),o.d(i,"width",function(){}),o.d(i,"height",function(){}),o.d(i,"ligatures",function(){}),o.d(i,"unicode",function(){}),o.d(i,"svgPathData",function(){})}}]);
-//# sourceMappingURL=688-0be03a7dd5c3ed9b1f12.js.map

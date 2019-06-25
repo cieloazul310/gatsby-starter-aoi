@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[563],{506:function(n,i,t){"use strict";t.r(i),t.d(i,"definition",function(){}),t.d(i,"faFigma",function(){}),t.d(i,"prefix",function(){}),t.d(i,"iconName",function(){}),t.d(i,"width",function(){}),t.d(i,"height",function(){}),t.d(i,"ligatures",function(){}),t.d(i,"unicode",function(){}),t.d(i,"svgPathData",function(){})}}]);
-//# sourceMappingURL=563-d3f647fb15a5aa0226ea.js.map

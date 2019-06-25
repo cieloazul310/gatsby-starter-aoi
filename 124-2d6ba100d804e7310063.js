@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[124],{484:function(e,i,n){"use strict";Object.defineProperty(i,"__esModule",{value:!0});var t=[],a="M311.9 260.8L160 353.6 8 260.8 160 0l151.9 260.8zM160 383.4L8 290.6 160 512l152-221.4-152 92.8z";i.definition={prefix:"fab",iconName:"ethereum",icon:[320,512,t,"f42e",a]},i.faEthereum=i.definition,i.prefix="fab",i.iconName="ethereum",i.width=320,i.height=512,i.ligatures=t,i.unicode="f42e",i.svgPathData=a}}]);
-//# sourceMappingURL=124-2d6ba100d804e7310063.js.map

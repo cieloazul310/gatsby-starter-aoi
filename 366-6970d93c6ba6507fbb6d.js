@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[366],{968:function(i,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var a=[],t="M465.4 409.4l87.1-150.2-32-.3-55.1 95L259.2 0 23 407.4l32 .3L259.2 55.6zm-355.3-44.1h32.1l117.4-202.5L463 511.9l32.5.1-235.8-404.6z";e.definition={prefix:"fab",iconName:"think-peaks",icon:[576,512,a,"f731",t]},e.faThinkPeaks=e.definition,e.prefix="fab",e.iconName="think-peaks",e.width=576,e.height=512,e.ligatures=a,e.unicode="f731",e.svgPathData=t}}]);
-//# sourceMappingURL=366-6970d93c6ba6507fbb6d.js.map

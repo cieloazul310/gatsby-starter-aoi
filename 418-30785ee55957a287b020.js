@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[418],{1073:function(i,e,o){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var n=[],a="M448 32v448H0V32h448zM236 287.5L313.5 142h-32.7L235 233c-4.7 9.3-9 18.3-12.8 26.8L210 233l-45.2-91h-35l76.7 143.8v94.5H236v-92.8z";e.definition={prefix:"fab",iconName:"y-combinator",icon:[448,512,n,"f23b",a]},e.faYCombinator=e.definition,e.prefix="fab",e.iconName="y-combinator",e.width=448,e.height=512,e.ligatures=n,e.unicode="f23b",e.svgPathData=a}}]);
-//# sourceMappingURL=418-30785ee55957a287b020.js.map

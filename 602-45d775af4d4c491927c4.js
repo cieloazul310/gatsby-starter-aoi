@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[602],{584:function(n,i,o){"use strict";o.r(i),o.d(i,"definition",function(){}),o.d(i,"faGoodreadsG",function(){}),o.d(i,"prefix",function(){}),o.d(i,"iconName",function(){}),o.d(i,"width",function(){}),o.d(i,"height",function(){}),o.d(i,"ligatures",function(){}),o.d(i,"unicode",function(){}),o.d(i,"svgPathData",function(){})}}]);
-//# sourceMappingURL=602-45d775af4d4c491927c4.js.map

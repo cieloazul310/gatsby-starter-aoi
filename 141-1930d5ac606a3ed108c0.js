@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[141],{519:function(i,e,a){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var o=[],n="M0 32v448h448V32H0zm358.4 179.2h-89.6v89.6h-89.6v89.6H89.6V121.6h268.8v89.6z";e.definition={prefix:"fab",iconName:"flipboard",icon:[448,512,o,"f44d",n]},e.faFlipboard=e.definition,e.prefix="fab",e.iconName="flipboard",e.width=448,e.height=512,e.ligatures=o,e.unicode="f44d",e.svgPathData=n}}]);
-//# sourceMappingURL=141-1930d5ac606a3ed108c0.js.map

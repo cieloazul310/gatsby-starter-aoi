@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[32],{300:function(i,a,e){"use strict";Object.defineProperty(a,"__esModule",{value:!0});var n=[],d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm48.2 326.1h-181L199.9 178h181l-84.7 156.1z";a.definition={prefix:"fab",iconName:"bandcamp",icon:[496,512,n,"f2d5",d]},a.faBandcamp=a.definition,a.prefix="fab",a.iconName="bandcamp",a.width=496,a.height=512,a.ligatures=n,a.unicode="f2d5",a.svgPathData=d}}]);
-//# sourceMappingURL=32-6a6ffe3001833cd0fc7c.js.map

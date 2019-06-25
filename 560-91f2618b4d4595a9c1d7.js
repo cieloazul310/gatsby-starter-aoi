@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[560],{499:function(n,i,t){"use strict";t.r(i),t.d(i,"definition",function(){}),t.d(i,"faFantasyFlightGames",function(){}),t.d(i,"prefix",function(){}),t.d(i,"iconName",function(){}),t.d(i,"width",function(){}),t.d(i,"height",function(){}),t.d(i,"ligatures",function(){}),t.d(i,"unicode",function(){}),t.d(i,"svgPathData",function(){})}}]);
-//# sourceMappingURL=560-91f2618b4d4595a9c1d7.js.map

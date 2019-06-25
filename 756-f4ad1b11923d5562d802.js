@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[756],{892:function(n,i,t){"use strict";t.r(i),t.d(i,"definition",function(){}),t.d(i,"faSkype",function(){}),t.d(i,"prefix",function(){}),t.d(i,"iconName",function(){}),t.d(i,"width",function(){}),t.d(i,"height",function(){}),t.d(i,"ligatures",function(){}),t.d(i,"unicode",function(){}),t.d(i,"svgPathData",function(){})}}]);
-//# sourceMappingURL=756-f4ad1b11923d5562d802.js.map
