@@ -5,11 +5,12 @@ import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Hidden from '@material-ui/core/Hidden';
 import Drawer from '@material-ui/core/Drawer';
+import Link from '@material-ui/core/Link';
 import Header from './Header';
 import MobileNavigation from './MobileNavigation';
 import DrawerInner from './DrawerInner';
-import ShareButtons from './ShareButtons';
 
+import { Action } from '../utils/reducer';
 import { LocationWithState, AppState } from '../types';
 
 const drawerWidth = 280;
@@ -63,7 +64,8 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     footer: {
       textAlign: 'center',
-      padding: `${theme.spacing(4)}px ${theme.spacing(2)}px`,
+      padding: `${theme.spacing(4)}px ${theme.spacing(2)}px`
+      /*
       '@global': {
         a: {
           color: theme.palette.secondary.main,
@@ -74,20 +76,18 @@ const useStyles = makeStyles((theme: Theme) =>
           }
         }
       }
+      */
     }
   })
 );
 
 interface Props {
+  dispatch: React.Dispatch<Action>;
   location: LocationWithState;
   appState: AppState;
   title?: string;
   children: JSX.Element | JSX.Element[];
   drawerContents?: JSX.Element[];
-}
-
-interface State {
-  readonly drawerOpen: boolean;
 }
 
 interface QueriedData {
@@ -102,7 +102,7 @@ interface QueriedData {
   };
 }
 
-function Layout({ children, title, appState, location, drawerContents }: Props) {
+function Layout({ children, title, appState, location, drawerContents, dispatch }: Props) {
   const [drawerOpen, toggleDrawer] = React.useState(false);
   const _toggleDrawer = () => {
     toggleDrawer(!drawerOpen);
@@ -154,12 +154,24 @@ function Layout({ children, title, appState, location, drawerContents }: Props) 
             <nav className={classes.drawer}>
               <Hidden mdUp>
                 <Drawer classes={{ paper: classes.drawerPaper }} variant="temporary" onClose={_toggleDrawer} open={drawerOpen}>
-                  <DrawerInner location={location} appState={appState} handleDrawer={_toggleDrawer} contents={drawerContents} />
+                  <DrawerInner
+                    location={location}
+                    appState={appState}
+                    handleDrawer={_toggleDrawer}
+                    contents={drawerContents}
+                    dispatch={dispatch}
+                  />
                 </Drawer>
               </Hidden>
               <Hidden smDown>
                 <Drawer classes={{ paper: classes.drawerPaper }} variant="permanent" open>
-                  <DrawerInner location={location} appState={appState} handleDrawer={_toggleDrawer} contents={drawerContents} />
+                  <DrawerInner
+                    location={location}
+                    appState={appState}
+                    handleDrawer={_toggleDrawer}
+                    contents={drawerContents}
+                    dispatch={dispatch}
+                  />
                 </Drawer>
               </Hidden>
             </nav>
@@ -172,7 +184,9 @@ function Layout({ children, title, appState, location, drawerContents }: Props) 
                   <Typography variant="body2">
                     © {new Date().getFullYear()}, Built with
                     {` `}
-                    <a href="https://www.gatsbyjs.org">Gatsby</a>
+                    <Link color="secondary" href="https://www.gatsbyjs.org">
+                      Gatsby
+                    </Link>
                   </Typography>
                 </div>
               </footer>
@@ -186,100 +200,5 @@ function Layout({ children, title, appState, location, drawerContents }: Props) 
     />
   );
 }
-
-/*
-class Layout extends React.Component<Props, State> {
-  readonly state = {
-    drawerOpen: false
-  };
-  private _toggleDrawer = () => {
-    this.setState(prev => ({
-      drawerOpen: !prev.drawerOpen
-    }));
-  };
-  public render() {
-    const { children, title, appState, location, drawerContents } = this.props;
-    const { drawerOpen } = this.state;
-    return (
-      <StaticQuery
-        query={graphql`
-          query {
-            site {
-              siteMetadata {
-                title
-                description
-                author {
-                  name
-                }
-              }
-            }
-          }
-        `}
-        render={(data: QueriedData) => {
-          const classes = useStyles();
-          return (
-            <div className={classes.root}>
-              <Helmet
-                title={title ? `${title} | ${data.site.siteMetadata.title}` : data.site.siteMetadata.title}
-                meta={[
-                  {
-                    name: 'description',
-                    content: data.site.siteMetadata.description
-                  },
-                  { name: 'keywords', content: 'sample, something' },
-                  { name: 'twitter:card', content: 'summary' },
-                  {
-                    name: 'twitter:title',
-                    content: title ? `${title} | ${data.site.siteMetadata.title}` : data.site.siteMetadata.title
-                  },
-                  {
-                    name: 'twitter:description',
-                    content: data.site.siteMetadata.description
-                  }
-                ]}
-              />
-              <Header
-                className={classes.header}
-                title={title || data.site.siteMetadata.title}
-                location={location}
-                toggleDrawer={this._toggleDrawer}
-              />
-              <nav className={classes.drawer}>
-                <Hidden mdUp>
-                  <Drawer classes={{ paper: classes.drawerPaper }} variant="temporary" onClose={this._toggleDrawer} open={drawerOpen}>
-                    <DrawerInner location={location} appState={appState} handleDrawer={this._toggleDrawer} contents={drawerContents} />
-                  </Drawer>
-                </Hidden>
-                <Hidden smDown>
-                  <Drawer classes={{ paper: classes.drawerPaper }} variant="permanent" open>
-                    <DrawerInner location={location} appState={appState} handleDrawer={this._toggleDrawer} contents={drawerContents} />
-                  </Drawer>
-                </Hidden>
-              </nav>
-              <div className={classes.main}>
-                <main>
-                  <div className={classes.content}>{children}</div>
-                </main>
-                <footer>
-                  <div className={classes.footer}>
-                    <Typography variant="body2">
-                      © {new Date().getFullYear()}, Built with
-                      {` `}
-                      <a href="https://www.gatsbyjs.org">Gatsby</a>
-                    </Typography>
-                  </div>
-                </footer>
-              </div>
-              <Hidden smUp>
-                <MobileNavigation location={location} appState={appState} />
-              </Hidden>
-            </div>
-          );
-        }}
-      />
-    );
-  }
-}
-*/
 
 export default Layout;

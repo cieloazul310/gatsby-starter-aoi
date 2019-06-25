@@ -1,6 +1,3 @@
-const teal = require('@material-ui/core/colors/teal').default;
-const deepOrange = require('@material-ui/core/colors/deepOrange').default;
-
 module.exports = {
   siteMetadata: {
     title: `Gatsby Starter Typescript App Shell`,

@@ -9,6 +9,7 @@ import CloseIcon from '@material-ui/icons/Close';
 // Drawer Contents
 import Contents from './Contents';
 import MapStateHandler from '../../components/MapStateHandler';
+import { Action } from '../../utils/reducer';
 import { AppState, LocationWithState } from '../../types';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -27,9 +28,10 @@ interface Props {
   location: LocationWithState;
   appState: AppState;
   contents?: JSX.Element[];
+  dispatch: React.Dispatch<Action>;
 }
 
-function DrawerInner({ location, appState, handleDrawer, contents }: Props) {
+function DrawerInner({ location, appState, handleDrawer, contents, dispatch }: Props) {
   const classes = useStyles({});
   return (
     <div>
@@ -57,7 +59,7 @@ function DrawerInner({ location, appState, handleDrawer, contents }: Props) {
         : null}
       <Contents location={location} appState={appState} />
       <Divider />
-      <MapStateHandler mapState={appState.mapState} />
+      <MapStateHandler mapState={appState.mapState} dispatch={dispatch} />
     </div>
   );
 }

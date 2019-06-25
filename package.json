@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-starter-typescript",
-  "description": "Gatsby TypeScript starter",
+  "name": "gatsby-starter-typescript-material-ui",
+  "description": "Gatsby TypeScript Material-UI Starter",
   "version": "1.0.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "cieloazul310 <cieloazul310@gmail.com>",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.15",
     "@fortawesome/free-brands-svg-icons": "^5.7.2",
@@ -26,7 +26,8 @@
     "typescript": "^3.3.3333"
   },
   "keywords": [
-    "gatsby, typescript"
+    "gatsby, typescript",
+    "material-ui"
   ],
   "license": "MIT",
   "main": "n/a",

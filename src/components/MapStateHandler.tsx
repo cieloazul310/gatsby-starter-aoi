@@ -15,6 +15,7 @@ import ExpandMore from '@material-ui/icons/ExpandMore';
 import LayersIcon from '@material-ui/icons/Layers';
 import BorderIcon from '@material-ui/icons/BorderStyle';
 
+import { Action } from '../utils/reducer';
 import { layers, MapState } from '../types';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -27,9 +28,10 @@ const useStyles = makeStyles((theme: Theme) =>
 
 interface Props {
   mapState: MapState;
+  dispatch: React.Dispatch<Action>;
 }
 
-function MapStateHandler({ mapState }: Props) {
+function MapStateHandler({ mapState, dispatch }: Props) {
   const classes = useStyles({});
   const [layerMenuOpen, handleLayerMenuOpen] = React.useState(false);
   const _handleLayerMenuOpen = () => {
@@ -47,22 +49,22 @@ function MapStateHandler({ mapState }: Props) {
       <Collapse in={layerMenuOpen} timeout="auto" unmountOnExit>
         <List disablePadding>
           {layers.map(layer => (
-            <ListItem className={classes.nested} key={layer} button>
+            <ListItem className={classes.nested} key={layer} button onClick={() => dispatch({ type: 'SET_LAYER', layer })}>
               <ListItemText primary={layer} />
               <ListItemSecondaryAction>
-                <CheckBox checked={layer === mapState.layer} />
+                <CheckBox checked={layer === mapState.layer} onChange={() => dispatch({ type: 'SET_LAYER', layer })} />
               </ListItemSecondaryAction>
             </ListItem>
           ))}
         </List>
       </Collapse>
-      <ListItem>
+      <ListItem onClick={() => dispatch({ type: 'TOGGLE_BORDER' })}>
         <ListItemIcon>
           <BorderIcon />
         </ListItemIcon>
         <ListItemText primary="Border" />
         <ListItemSecondaryAction>
-          <Switch checked={mapState.borderVisibility} />
+          <Switch checked={mapState.borderVisibility} onChange={() => dispatch({ type: 'TOGGLE_BORDER' })} />
         </ListItemSecondaryAction>
       </ListItem>
     </List>
