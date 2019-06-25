@@ -2,6 +2,8 @@
 
 The Gatsby.js Starter converted to TypeScript.
 
+DEMO: https://cieloazul310.github.io/gatsby-starter-typescript-material-ui/
+
 <!--
 The [default Gatsby starter](https://github.com/gatsbyjs/gatsby-starter-default) converted to [TypeScript](https://www.typescriptlang.org/).
 
