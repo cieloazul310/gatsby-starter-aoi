@@ -1,8 +1,14 @@
 # gatsby-starter-typescript-material-ui
 
-The Gatsby.js Starter converted to TypeScript.
+> A starter kit for TypeScript-based Gatsby projects Material-UI.
 
 DEMO: https://cieloazul310.github.io/gatsby-starter-typescript-material-ui/
+
+## Features
+
+- TypeScript
+- Material-UI
+- App State
 
 <!--
 The [default Gatsby starter](https://github.com/gatsbyjs/gatsby-starter-default) converted to [TypeScript](https://www.typescriptlang.org/).

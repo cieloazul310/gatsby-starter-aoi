@@ -18,6 +18,12 @@ module.exports = {
     },
     'gatsby-plugin-sitemap',
     {
+      resolve: 'gatsby-plugin-google-analytics',
+      options: {
+        trackingId: 'UA-74683419-3'
+      }
+    },
+    {
       resolve: 'gatsby-plugin-material-ui',
       // If you want to use styled components you should change the injection order.
       options: {
