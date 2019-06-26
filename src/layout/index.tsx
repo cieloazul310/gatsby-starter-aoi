@@ -65,18 +65,6 @@ const useStyles = makeStyles((theme: Theme) =>
     footer: {
       textAlign: 'center',
       padding: `${theme.spacing(4)}px ${theme.spacing(2)}px`
-      /*
-      '@global': {
-        a: {
-          color: theme.palette.secondary.main,
-          textDecoration: 'none',
-          '&:hover': {
-            color: theme.palette.secondary.light,
-            textDecoration: 'underline'
-          }
-        }
-      }
-      */
     }
   })
 );
@@ -95,6 +83,7 @@ interface QueriedData {
     siteMetadata: {
       title: string;
       description: string;
+      siteUrl: string;
       author: {
         name: string;
       };
@@ -152,7 +141,7 @@ function Layout({ children, title, appState, location, drawerContents, dispatch 
               toggleDrawer={_toggleDrawer}
             />
             <nav className={classes.drawer}>
-              <Hidden mdUp>
+              <Hidden mdUp implementation="css">
                 <Drawer classes={{ paper: classes.drawerPaper }} variant="temporary" onClose={_toggleDrawer} open={drawerOpen}>
                   <DrawerInner
                     location={location}
@@ -163,7 +152,7 @@ function Layout({ children, title, appState, location, drawerContents, dispatch 
                   />
                 </Drawer>
               </Hidden>
-              <Hidden smDown>
+              <Hidden smDown implementation="css">
                 <Drawer classes={{ paper: classes.drawerPaper }} variant="permanent" open>
                   <DrawerInner
                     location={location}
@@ -191,7 +180,7 @@ function Layout({ children, title, appState, location, drawerContents, dispatch 
                 </div>
               </footer>
             </div>
-            <Hidden smUp>
+            <Hidden smUp implementation="css">
               <MobileNavigation location={location} appState={appState} />
             </Hidden>
           </div>

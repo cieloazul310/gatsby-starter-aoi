@@ -17,8 +17,10 @@
     "classnames": "^2.2.6",
     "gatsby": "^2.1.19",
     "gatsby-link": "^2.0.13",
+    "gatsby-plugin-canonical-urls": "^2.1.0",
     "gatsby-plugin-material-ui": "^2.0.1",
     "gatsby-plugin-react-helmet": "^3.0.7",
+    "gatsby-plugin-sitemap": "^2.2.0",
     "gatsby-plugin-typescript": "^2.0.9",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
@@ -32,9 +34,9 @@
   "license": "MIT",
   "main": "n/a",
   "scripts": {
-    "build": "gatsby build",
+    "build": "gatsby build --prefix-paths",
     "develop": "gatsby develop",
-    "deploy": "gatsby build && gh-pages -d public",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
     "format": "prettier --parser typescript --trailing-comma es5 --single-quote --write \"src/**/*.ts*\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

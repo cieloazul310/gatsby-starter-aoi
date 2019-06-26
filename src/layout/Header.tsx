@@ -34,7 +34,7 @@ function Header({ className, title, location, toggleDrawer }: Props) {
   return (
     <AppBar className={classNames(className)}>
       <Toolbar>
-        <Hidden xsDown mdUp>
+        <Hidden xsDown mdUp implementation="css">
           <Tooltip title="Menu">
             <IconButton color="inherit" onClick={toggleDrawer}>
               <MenuIcon />
@@ -44,7 +44,7 @@ function Header({ className, title, location, toggleDrawer }: Props) {
         <Typography className={classes.title} variant="h6" component="h1" color="inherit">
           {title}
         </Typography>
-        <Hidden smDown>
+        <Hidden smDown implementation="css">
           <ShareButtons color="inherit" location={location} title={title} />
         </Hidden>
       </Toolbar>
