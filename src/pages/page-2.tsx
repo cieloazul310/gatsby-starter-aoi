@@ -19,6 +19,20 @@ function SecondPage({ location }: Props) {
       <Typography variant="h2" gutterBottom>
         Hi from the second page
       </Typography>
+      <Typography variant="h3" gutterBottom>
+        Typography h3 gutterBottom
+      </Typography>
+      <Typography variant="h4" gutterBottom>
+        Typography h4 gutterBottom
+      </Typography>
+      <Typography variant="h5" gutterBottom>
+        Typography h5 gutterBottom
+      </Typography>
+      <Typography variant="h6" gutterBottom>
+        Typography h6 gutterBottom
+      </Typography>
+      <Typography variant="body1">Typography body1</Typography>
+      <Typography variant="body2">Typography body2</Typography>
       <SimpleCounterApp />
       <p>Welcome to page 2</p>
       <AppLink to="/" appState={appState}>

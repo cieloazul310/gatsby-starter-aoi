@@ -11,7 +11,6 @@ const theme = createMuiTheme({
     fontFamily: [
       '-apple-system',
       'YuGothic',
-      '游ゴシック',
       'BlinkMacSystemFont',
       '"Segoe UI"',
       'Roboto',

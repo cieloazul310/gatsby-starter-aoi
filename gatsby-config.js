@@ -17,6 +17,20 @@ module.exports = {
       }
     },
     'gatsby-plugin-sitemap',
+    'gatsby-plugin-offline',
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Gatsby Starter TypeScript Material-UI`,
+        short_name: `GSTMUI`,
+        scope: '/gatsby-starter-typescript-material-ui/',
+        start_url: `.`,
+        background_color: `#f7f0eb`,
+        theme_color: `#009688`,
+        display: `standalone`,
+        icon: `src/assets/icon360.png`
+      }
+    },
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
