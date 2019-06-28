@@ -1,5 +1,4 @@
 import * as React from 'react';
-import classNames from 'classnames';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -10,10 +9,17 @@ import Tooltip from '@material-ui/core/Tooltip';
 // icons
 import MenuIcon from '@material-ui/icons/Menu';
 import ShareButtons from './ShareButtons';
+import { drawerWidth } from './drawerWidth';
 import { LocationWithState } from '../types';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
+    root: {
+      width: '100%',
+      [theme.breakpoints.up('md')]: {
+        width: `calc(100% - ${drawerWidth}px)`
+      }
+    },
     title: {
       flex: 1,
       paddingLeft: theme.spacing(1),
@@ -24,15 +30,14 @@ const useStyles = makeStyles((theme: Theme) =>
 
 interface Props {
   title: string;
-  className: string;
   location: LocationWithState;
   toggleDrawer: () => any;
 }
 
-function Header({ className, title, location, toggleDrawer }: Props) {
+function Header({ title, location, toggleDrawer }: Props) {
   const classes = useStyles({});
   return (
-    <AppBar className={classNames(className)}>
+    <AppBar className={classes.root}>
       <Toolbar>
         <Hidden xsDown mdUp implementation="css">
           <Tooltip title="Menu">

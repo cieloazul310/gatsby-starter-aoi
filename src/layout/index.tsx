@@ -11,9 +11,9 @@ import MobileNavigation from './MobileNavigation';
 import DrawerInner from './DrawerInner';
 
 import { Action } from '../utils/reducer';
+import { drawerWidth } from './drawerWidth';
 import { LocationWithState, AppState } from '../types';
 
-const drawerWidth = 280;
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
@@ -26,12 +26,6 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     drawerPaper: {
       width: drawerWidth
-    },
-    header: {
-      width: '100%',
-      [theme.breakpoints.up('md')]: {
-        width: `calc(100% - ${drawerWidth}px)`
-      }
     },
     main: {
       width: '100%',
@@ -134,12 +128,7 @@ function Layout({ children, title, appState, location, drawerContents, dispatch 
                 }
               ]}
             />
-            <Header
-              className={classes.header}
-              title={title || data.site.siteMetadata.title}
-              location={location}
-              toggleDrawer={_toggleDrawer}
-            />
+            <Header title={title || data.site.siteMetadata.title} location={location} toggleDrawer={_toggleDrawer} />
             <nav className={classes.drawer}>
               <Hidden mdUp implementation="css">
                 <Drawer classes={{ paper: classes.drawerPaper }} variant="temporary" onClose={_toggleDrawer} open={drawerOpen}>
