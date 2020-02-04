@@ -8,6 +8,8 @@ DEMO: https://cieloazul310.github.io/gatsby-starter-typescript-material-ui/
 
 - TypeScript
 - Material-UI
+- Storybook
+- Responsive UI
 - Hold App State
 
 <!--

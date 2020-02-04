@@ -2,8 +2,8 @@ import * as React from 'react';
 import Typography from '@material-ui/core/Typography';
 import Layout from '../layout';
 import { AppLink } from '../components/AppLink';
-import SimpleCounterApp from '../components/SimpleCounterApp';
 import reducer from '../utils/reducer';
+import locationToRelativePath from '../utils/locationToRelativePath';
 import { LocationWithState, createInitialAppState } from '../types';
 
 interface Props {
@@ -12,6 +12,7 @@ interface Props {
 
 function SecondPage({ location }: Props) {
   console.log(location);
+  console.log(locationToRelativePath(location));
   const [appState, dispatch] = React.useReducer(reducer, createInitialAppState(location));
 
   return (
@@ -33,7 +34,6 @@ function SecondPage({ location }: Props) {
       </Typography>
       <Typography variant="body1">Typography body1</Typography>
       <Typography variant="body2">Typography body2</Typography>
-      <SimpleCounterApp />
       <p>Welcome to page 2</p>
       <AppLink to="/" appState={appState}>
         Go back to the homepage

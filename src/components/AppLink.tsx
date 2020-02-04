@@ -22,6 +22,6 @@ export function AppLink({ className, children, to, appState }: Props) {
 export function appNavigate(to: string, appState: AppState, options: NavigateOptions<{}> = {}) {
   navigate(to, {
     ...options,
-    state: { appState }
+    state: { appState },
   });
 }

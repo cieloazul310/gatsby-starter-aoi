@@ -9,11 +9,17 @@ module.exports = {
   },
   pathPrefix: '/gatsby-starter-typescript-material-ui',
   plugins: [
-    'gatsby-plugin-top-layout',
+    //'gatsby-plugin-top-layout',
     {
       resolve: 'gatsby-plugin-canonical-urls',
       options: {
         siteUrl: 'https://cieloazul310.github.io'
+      }
+    },
+    {
+      resolve: `gatsby-plugin-graphql-codegen`,
+      options: {
+        fileName: `types/graphql-types.ts`,
       }
     },
     'gatsby-plugin-sitemap',

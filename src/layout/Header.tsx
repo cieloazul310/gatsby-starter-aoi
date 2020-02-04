@@ -8,6 +8,7 @@ import IconButton from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
 // icons
 import MenuIcon from '@material-ui/icons/Menu';
+import useTheme from '@material-ui/core/styles/useTheme';
 import ShareButtons from './ShareButtons';
 import { drawerWidth } from './drawerWidth';
 import { LocationWithState } from '../types';
@@ -17,14 +18,14 @@ const useStyles = makeStyles((theme: Theme) =>
     root: {
       width: '100%',
       [theme.breakpoints.up('md')]: {
-        width: `calc(100% - ${drawerWidth}px)`
-      }
+        width: `calc(100% - ${drawerWidth}px)`,
+      },
     },
     title: {
       flex: 1,
       paddingLeft: theme.spacing(1),
-      paddingRight: theme.spacing(1)
-    }
+      paddingRight: theme.spacing(1),
+    },
   })
 );
 
@@ -36,8 +37,9 @@ interface Props {
 
 function Header({ title, location, toggleDrawer }: Props) {
   const classes = useStyles({});
+  const paletteType = useTheme().palette.type;
   return (
-    <AppBar className={classes.root}>
+    <AppBar className={classes.root} color={paletteType === 'dark' ? 'default' : 'primary'}>
       <Toolbar>
         <Hidden xsDown mdUp implementation="css">
           <Tooltip title="Menu">

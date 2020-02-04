@@ -4,6 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import Layout from '../layout';
 import { AppLink } from '../components/AppLink';
 import reducer from '../utils/reducer';
+import locationToRelativePath from '../utils/locationToRelativePath';
 import { LocationWithState, createInitialAppState } from '../types';
 
 interface Props {

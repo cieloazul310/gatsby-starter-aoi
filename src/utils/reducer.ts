@@ -1,25 +1,18 @@
-import { AppState, Layer } from '../types/';
+import { AppState } from '../types/';
 
-export type Action = { type: 'SET_LAYER'; layer: Layer } | { type: 'TOGGLE_BORDER' };
+type TypographyActions = { type: 'TOGGLE_DARKMODE' } | { type: 'SET_FONTSIZE'; fontSize: 'small' | 'middle' | 'large';};
+
+export type Action = { type: 'any' } | TypographyActions;
 
 export default function reducer(state: AppState, action: Action): AppState {
   switch (action.type) {
-    case 'SET_LAYER':
+    case 'TOGGLE_DARKMODE':
       return {
         ...state,
-        mapState: {
-          ...state.mapState,
-          layer: action.layer
-        }
+        darkMode: !state.darkMode
       };
-    case 'TOGGLE_BORDER':
-      return {
-        ...state,
-        mapState: {
-          ...state.mapState,
-          borderVisibility: !state.mapState.borderVisibility
-        }
-      };
+    case 'any':
+      return { ...state };
     default:
       throw new Error();
   }

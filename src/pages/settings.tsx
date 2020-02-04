@@ -1,9 +1,9 @@
 import * as React from 'react';
 import Typography from '@material-ui/core/Typography';
 import Layout from '../layout';
-import MapStateHandler from '../components/MapStateHandler';
+import StateHandler from '../components/StateHandler';
 import reducer from '../utils/reducer';
-import { LocationWithState, createInitialAppState, MapState } from '../types';
+import { LocationWithState, createInitialAppState } from '../types';
 
 interface Props {
   location: LocationWithState;
@@ -20,7 +20,7 @@ function SettingsPage({ location }: Props) {
       <Typography variant="h5" gutterBottom>
         This is Settings Page for App.
       </Typography>
-      <MapStateHandler mapState={appState.mapState} dispatch={dispatch} />
+      <StateHandler />
     </Layout>
   );
 }

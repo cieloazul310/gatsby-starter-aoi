@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { graphql, StaticQuery } from 'gatsby';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
@@ -18,8 +17,8 @@ const useStyles = makeStyles((theme: Theme) =>
       position: 'fixed',
       bottom: 0,
       left: 0,
-      width: '100%'
-    }
+      width: '100%',
+    },
   })
 );
 
@@ -27,41 +26,22 @@ interface Props {
   appState: AppState;
   location: LocationWithState;
 }
-interface QueriedData {
-  site: {
-    pathPrefix: string;
-  };
-}
 
 function MobileNavigation({ location, appState }: Props) {
+  const classes = useStyles({});
   return (
-    <StaticQuery
-      query={graphql`
-        query {
-          site {
-            pathPrefix
-          }
-        }
-      `}
-      render={({ site }: QueriedData) => {
-        const classes = useStyles({});
-        const { pathPrefix } = site;
-        return (
-          <BottomNavigation
-            className={classes.root}
-            value={locationToRelativePath(location, pathPrefix)}
-            showLabels
-            onChange={(e, value) => {
-              appNavigate(value, appState);
-            }}
-          >
-            <BottomNavigationAction label="Top" value="/" icon={<Home />} />
-            <BottomNavigationAction label="page2" value="/page-2/" icon={<MusicNote />} />
-            <BottomNavigationAction label="Settings" value="/settings/" icon={<Settings />} />
-          </BottomNavigation>
-        );
+    <BottomNavigation
+      className={classes.root}
+      value={locationToRelativePath(location)}
+      showLabels
+      onChange={(e, value) => {
+        appNavigate(value, appState);
       }}
-    />
+    >
+      <BottomNavigationAction label="Top" value="" icon={<Home />} />
+      <BottomNavigationAction label="page2" value="page-2/" icon={<MusicNote />} />
+      <BottomNavigationAction label="Settings" value="settings/" icon={<Settings />} />
+    </BottomNavigation>
   );
   /*
   const classes = useStyles({});

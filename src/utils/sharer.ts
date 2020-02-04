@@ -5,9 +5,7 @@ interface ShareOnTwitterProps {
 
 export const shareOnTwitter = ({ url, title }: ShareOnTwitterProps): string =>
   title
-    ? `https://twitter.com/intent/tweet?text=${encodeURI(
-      title
-    )}&url=${encodeURIComponent(url)}`
+    ? `https://twitter.com/intent/tweet?text=${encodeURI(title)}&url=${encodeURIComponent(url)}`
     : `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}`;
 
 interface ShareOnFacebookProps {

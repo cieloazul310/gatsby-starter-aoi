@@ -5,7 +5,7 @@ import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
 const theme = createMuiTheme({
   palette: {
     primary: teal,
-    secondary: orange
+    secondary: orange,
   },
   typography: {
     fontFamily: [
@@ -19,9 +19,9 @@ const theme = createMuiTheme({
       'sans-serif',
       '"Apple Color Emoji"',
       '"Segoe UI Emoji"',
-      '"Segoe UI Symbol"'
-    ].join(',')
-  }
+      '"Segoe UI Symbol"',
+    ].join(','),
+  },
 });
 
 export default responsiveFontSizes(theme);

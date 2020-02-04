@@ -8,7 +8,7 @@ import Tooltip from '@material-ui/core/Tooltip';
 import CloseIcon from '@material-ui/icons/Close';
 // Drawer Contents
 import Contents from './Contents';
-import MapStateHandler from '../../components/MapStateHandler';
+import StateHandler from '../../components/StateHandler';
 import { Action } from '../../utils/reducer';
 import { AppState, LocationWithState } from '../../types';
 
@@ -18,8 +18,8 @@ const useStyles = makeStyles((theme: Theme) =>
       ...theme.mixins.toolbar,
       display: 'flex',
       alignItems: 'center',
-      paddingLeft: theme.spacing(3)
-    }
+      paddingLeft: theme.spacing(3),
+    },
   })
 );
 
@@ -50,16 +50,16 @@ function DrawerInner({ location, appState, handleDrawer, contents, dispatch }: P
             index === arr.length - 1 ? (
               content
             ) : (
-              <React.Fragment>
+              <>
                 {content}
                 <Divider />
-              </React.Fragment>
+              </>
             )
           )
         : null}
       <Contents location={location} appState={appState} />
       <Divider />
-      <MapStateHandler mapState={appState.mapState} dispatch={dispatch} />
+      <StateHandler appState={appState} dispatch={dispatch} />
     </div>
   );
 }
