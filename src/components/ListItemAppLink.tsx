@@ -14,18 +14,9 @@ interface ListItemAppLinkProps {
   appState: AppState;
 }
 
-function ListItemAppLink({
-  icon,
-  primary,
-  to,
-  selected,
-  appState
-}: ListItemAppLinkProps) {
+function ListItemAppLink({ icon, primary, to, selected, appState }: ListItemAppLinkProps) {
   const renderLink = React.useMemo(
-    () =>
-      React.forwardRef((itemProps: any, ref) => (
-        <AppLink to={to} appState={appState} {...itemProps} innerRef={ref} />
-      )),
+    () => React.forwardRef((itemProps: any, ref) => <AppLink to={to} appState={appState} {...itemProps} innerRef={ref} />),
     [to, appState]
   );
 

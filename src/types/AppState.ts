@@ -1,7 +1,6 @@
 import { WindowLocation } from '@reach/router';
 
 export interface AppState {
-  darkMode: boolean;
 }
 export interface LocationWithState extends WindowLocation {
   state: {
@@ -11,7 +10,6 @@ export interface LocationWithState extends WindowLocation {
 }
 
 export const initialAppState: AppState = {
-  darkMode: false
 };
 
 export const createInitialAppState = (location: LocationWithState) =>

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
 import Layout from '../layout';
 import { AppLink } from '../components/AppLink';
 import reducer from '../utils/reducer';
@@ -35,6 +36,24 @@ function SecondPage({ location }: Props) {
       <Typography variant="body1">Typography body1</Typography>
       <Typography variant="body2">Typography body2</Typography>
       <p>Welcome to page 2</p>
+      <Button variant="contained" color="primary">
+        Primary
+      </Button>
+      <Button variant="contained" color="secondary">
+        Secondary
+      </Button>
+      <Button variant="outlined" color="primary">
+        Primary
+      </Button>
+      <Button variant="outlined" color="secondary">
+        Secondary
+      </Button>
+      <Button variant="contained" color="default">
+        Default
+      </Button>
+      <Button variant="outlined" color="default">
+        Default
+      </Button>
       <AppLink to="/" appState={appState}>
         Go back to the homepage
       </AppLink>

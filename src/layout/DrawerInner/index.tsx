@@ -60,6 +60,7 @@ function DrawerInner({ location, appState, handleDrawer, contents, dispatch }: P
       <Contents location={location} appState={appState} />
       <Divider />
       <StateHandler appState={appState} dispatch={dispatch} />
+      <Divider />
     </div>
   );
 }

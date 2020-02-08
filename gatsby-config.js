@@ -9,7 +9,7 @@ module.exports = {
   },
   pathPrefix: '/gatsby-starter-typescript-material-ui',
   plugins: [
-    //'gatsby-plugin-top-layout',
+    'gatsby-plugin-top-layout',
     {
       resolve: 'gatsby-plugin-canonical-urls',
       options: {
