@@ -1,19 +1,18 @@
 import * as React from 'react';
 import Typography from '@material-ui/core/Typography';
+const { useLocation } = require('@reach/router');
+
 import Layout from '../layout';
 import { AppLink } from '../components/AppLink';
 import reducer from '../utils/reducer';
 import { LocationWithState, createInitialAppState } from '../types';
 
-interface Props {
-  location: LocationWithState;
-}
 
-function NotFoundPage({ location }: Props) {
-  console.log(location);
+function NotFoundPage() {
+  const location: LocationWithState = useLocation();
   const [appState, dispatch] = React.useReducer(reducer, createInitialAppState(location));
   return (
-    <Layout title="Not Found" location={location} appState={appState} dispatch={dispatch}>
+    <Layout title="Not Found" appState={appState} dispatch={dispatch}>
       <Typography variant="h2" gutterBottom>
         NOT FOUND
       </Typography>

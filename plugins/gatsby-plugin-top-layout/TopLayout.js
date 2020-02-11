@@ -19,7 +19,7 @@ export default function TopLayout(props) {
   // persist paletteType
   React.useEffect(() => {
     setValue(paletteType);
-  }, [paletteType]);
+  }, [paletteType, setValue]);
 
   const theme = React.useMemo(() => {
     return createMuiTheme({

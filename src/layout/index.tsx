@@ -12,13 +12,14 @@ import Link from '@material-ui/core/Link';
 import Tooltip from '@material-ui/core/Tooltip';
 import MenuIcon from '@material-ui/icons/Menu';
 import useTheme from '@material-ui/core/styles/useTheme';
+const { useLocation } = require('@reach/router');
 
 import Header from './Header';
 import MobileNavigation from './MobileNavigation';
 import DrawerInner from './DrawerInner';
 import { Action } from '../utils/reducer';
 import { drawerWidth } from './drawerWidth';
-import { LocationWithState, AppState } from '../types';
+import { AppState } from '../types';
 import { LayoutQuery } from '../../types/graphql-types';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -77,14 +78,13 @@ const useStyles = makeStyles((theme: Theme) =>
 
 interface Props {
   dispatch: React.Dispatch<Action>;
-  location: LocationWithState;
   appState: AppState;
   title?: string;
   children: JSX.Element | JSX.Element[];
   drawerContents?: JSX.Element[];
 }
 
-function Layout({ children, title, appState, location, drawerContents, dispatch }: Props) {
+function Layout({ children, title, appState, drawerContents, dispatch }: Props) {
   const data = useStaticQuery<LayoutQuery>(graphql`
     query Layout {
       site {
@@ -126,7 +126,7 @@ function Layout({ children, title, appState, location, drawerContents, dispatch 
           },
         ]}
       />
-      <Header title={title || data.site.siteMetadata.title} location={location} toggleDrawer={_toggleDrawer} />
+      <Header title={title || data.site.siteMetadata.title} toggleDrawer={_toggleDrawer} />
       <nav className={classes.drawer}>
         <Hidden mdUp implementation="css">
           <SwipeableDrawer
@@ -137,7 +137,6 @@ function Layout({ children, title, appState, location, drawerContents, dispatch 
             open={drawerOpen}
           >
             <DrawerInner
-              location={location}
               appState={appState}
               handleDrawer={_toggleDrawer}
               contents={drawerContents}
@@ -148,7 +147,6 @@ function Layout({ children, title, appState, location, drawerContents, dispatch 
         <Hidden smDown implementation="css">
           <Drawer classes={{ paper: classes.drawerPaper }} variant="permanent" open>
             <DrawerInner
-              location={location}
               appState={appState}
               handleDrawer={_toggleDrawer}
               contents={drawerContents}
@@ -175,7 +173,7 @@ function Layout({ children, title, appState, location, drawerContents, dispatch 
           </footer>
           <Hidden mdUp implementation="css">
             <Tooltip title="Menu" placement="top">
-              <Fab className={classes.menuFab} onClick={_toggleDrawer} color={paletteType === 'dark' ? 'default' : 'secondary'}>
+              <Fab className={classes.menuFab} onClick={_toggleDrawer} color="secondary">
                 <MenuIcon />
               </Fab>
             </Tooltip>
@@ -183,7 +181,7 @@ function Layout({ children, title, appState, location, drawerContents, dispatch 
         </Container>
       </div>
       <Hidden smUp implementation="css">
-        <MobileNavigation location={location} appState={appState} />
+        <MobileNavigation appState={appState} />
       </Hidden>
     </div>
   );

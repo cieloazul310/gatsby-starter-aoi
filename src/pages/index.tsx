@@ -5,7 +5,7 @@ import Layout from '../layout';
 import { AppLink } from '../components/AppLink';
 import reducer from '../utils/reducer';
 import locationToRelativePath from '../utils/locationToRelativePath';
-import { LocationWithState, createInitialAppState } from '../types';
+import { LocationWithState, createInitialAppState, useInitialAppState } from '../types';
 
 interface Props {
   data: {
@@ -21,9 +21,10 @@ interface Props {
 function IndexPage({ data, location }: Props) {
   console.log(location);
   const [appState, dispatch] = React.useReducer(reducer, createInitialAppState(location));
+  console.log(useInitialAppState());
 
   return (
-    <Layout title="Index Page" location={location} appState={appState} dispatch={dispatch}>
+    <Layout title="Index Page" appState={appState} dispatch={dispatch}>
       <Typography variant="h2" gutterBottom>
         Gatsby Starter TypeScript App Shell
       </Typography>

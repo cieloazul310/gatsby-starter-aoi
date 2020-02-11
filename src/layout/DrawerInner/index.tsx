@@ -4,6 +4,7 @@ import Hidden from '@material-ui/core/Hidden';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
+const { useLocation } = require('@reach/router');
 // icons
 import CloseIcon from '@material-ui/icons/Close';
 // Drawer Contents
@@ -25,14 +26,15 @@ const useStyles = makeStyles((theme: Theme) =>
 
 interface Props {
   handleDrawer: () => any;
-  location: LocationWithState;
+  //location: LocationWithState;
   appState: AppState;
   contents?: JSX.Element[];
   dispatch: React.Dispatch<Action>;
 }
 
-function DrawerInner({ location, appState, handleDrawer, contents, dispatch }: Props) {
+function DrawerInner({ appState, handleDrawer, contents, dispatch }: Props) {
   const classes = useStyles({});
+  const location: LocationWithState = useLocation();
   return (
     <div>
       <div className={classes.toolbar}>

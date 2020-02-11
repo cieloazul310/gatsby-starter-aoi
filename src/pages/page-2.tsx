@@ -1,23 +1,24 @@
 import * as React from 'react';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
+const { useLocation } = require('@reach/router');
 import Layout from '../layout';
 import { AppLink } from '../components/AppLink';
 import reducer from '../utils/reducer';
 import locationToRelativePath from '../utils/locationToRelativePath';
 import { LocationWithState, createInitialAppState } from '../types';
-
+/*
 interface Props {
-  location: LocationWithState;
+  
 }
-
-function SecondPage({ location }: Props) {
-  console.log(location);
+*/
+function SecondPage() {
+  const location: LocationWithState = useLocation();
   console.log(locationToRelativePath(location));
   const [appState, dispatch] = React.useReducer(reducer, createInitialAppState(location));
 
   return (
-    <Layout title="Second Page" location={location} appState={appState} dispatch={dispatch}>
+    <Layout title="Second Page" appState={appState} dispatch={dispatch}>
       <Typography variant="h2" gutterBottom>
         Hi from the second page
       </Typography>

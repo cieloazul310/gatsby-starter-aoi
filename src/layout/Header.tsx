@@ -6,6 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import Hidden from '@material-ui/core/Hidden';
 import IconButton from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
+const { useLocation } = require('@reach/router');
 // icons
 import MenuIcon from '@material-ui/icons/Menu';
 import useTheme from '@material-ui/core/styles/useTheme';
@@ -18,28 +19,29 @@ const useStyles = makeStyles((theme: Theme) =>
     root: {
       width: '100%',
       [theme.breakpoints.up('md')]: {
-        width: `calc(100% - ${drawerWidth}px)`,
+        width: `calc(100% - ${drawerWidth}px)`
       },
+      backgroundColor: theme.palette.type === 'dark' ? '#222' : null,
+      color: theme.palette.type === 'dark' ? theme.palette.text.primary : null
     },
     title: {
       flex: 1,
       paddingLeft: theme.spacing(1),
-      paddingRight: theme.spacing(1),
-    },
+      paddingRight: theme.spacing(1)
+    }
   })
 );
 
 interface Props {
   title: string;
-  location: LocationWithState;
   toggleDrawer: () => any;
 }
 
-function Header({ title, location, toggleDrawer }: Props) {
+function Header({ title, toggleDrawer }: Props) {
   const classes = useStyles({});
-  const paletteType = useTheme().palette.type;
+  //const paletteType = useTheme().palette.type;
   return (
-    <AppBar className={classes.root} color={paletteType === 'dark' ? 'default' : 'primary'}>
+    <AppBar className={classes.root}>
       <Toolbar>
         <Hidden xsDown mdUp implementation="css">
           <Tooltip title="Menu">
@@ -52,7 +54,7 @@ function Header({ title, location, toggleDrawer }: Props) {
           {title}
         </Typography>
         <Hidden smDown implementation="css">
-          <ShareButtons color="inherit" location={location} title={title} />
+          <ShareButtons color="inherit" title={title} />
         </Hidden>
       </Toolbar>
     </AppBar>

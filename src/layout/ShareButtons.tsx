@@ -2,6 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import IconButton, { IconButtonProps } from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
+const { useLocation } = require('@reach/router');
 //import FabIcon from '../components/FabIcon';
 import FabIcon from '../components/FabIcon';
 import { faTwitter, faFacebookF, faGithub } from '@fortawesome/free-brands-svg-icons';
@@ -14,10 +15,11 @@ interface Props {
   fontSize?: IconProps['fontSize'];
   color?: IconButtonProps['color'];
   title: string;
-  location: LocationWithState;
+  //location: LocationWithState;
 }
 
-function ShareButtons({ className, title, location, fontSize, color }: Props) {
+function ShareButtons({ className, title, fontSize, color }: Props) {
+  const location: LocationWithState = useLocation();
   return (
     <div className={classNames(className)}>
       <Tooltip title="Share on Twitter">
