@@ -6,29 +6,27 @@ import Typography from '@material-ui/core/Typography';
 import Hidden from '@material-ui/core/Hidden';
 import IconButton from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
-const { useLocation } = require('@reach/router');
 // icons
 import MenuIcon from '@material-ui/icons/Menu';
-import useTheme from '@material-ui/core/styles/useTheme';
 import ShareButtons from './ShareButtons';
 import { drawerWidth } from './drawerWidth';
-import { LocationWithState } from '../types';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       width: '100%',
       [theme.breakpoints.up('md')]: {
-        width: `calc(100% - ${drawerWidth}px)`
+        width: `calc(100% - ${drawerWidth}px)`,
       },
       backgroundColor: theme.palette.type === 'dark' ? '#222' : null,
-      color: theme.palette.type === 'dark' ? theme.palette.text.primary : null
+      color: theme.palette.type === 'dark' ? theme.palette.text.primary : null,
+      transition: theme.transitions.create('background'),
     },
     title: {
       flex: 1,
       paddingLeft: theme.spacing(1),
-      paddingRight: theme.spacing(1)
-    }
+      paddingRight: theme.spacing(1),
+    },
   })
 );
 
@@ -38,8 +36,7 @@ interface Props {
 }
 
 function Header({ title, toggleDrawer }: Props) {
-  const classes = useStyles({});
-  //const paletteType = useTheme().palette.type;
+  const classes = useStyles();
   return (
     <AppBar className={classes.root}>
       <Toolbar>

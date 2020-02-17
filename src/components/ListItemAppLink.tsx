@@ -3,7 +3,6 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 
-import { AppState } from '../types';
 import { AppLink } from './AppLink';
 
 interface ListItemAppLinkProps {
@@ -11,14 +10,12 @@ interface ListItemAppLinkProps {
   primary: string;
   to: string;
   selected: boolean;
-  appState: AppState;
 }
 
-function ListItemAppLink({ icon, primary, to, selected, appState }: ListItemAppLinkProps) {
-  const renderLink = React.useMemo(
-    () => React.forwardRef((itemProps: any, ref) => <AppLink to={to} appState={appState} {...itemProps} innerRef={ref} />),
-    [to, appState]
-  );
+function ListItemAppLink({ icon, primary, to, selected }: ListItemAppLinkProps) {
+  const renderLink = React.useMemo(() => React.forwardRef((itemProps: any, ref) => <AppLink to={to} {...itemProps} innerRef={ref} />), [
+    to,
+  ]);
 
   return (
     <ListItem button component={renderLink} selected={selected}>

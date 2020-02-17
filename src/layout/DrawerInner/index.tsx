@@ -4,14 +4,12 @@ import Hidden from '@material-ui/core/Hidden';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
-const { useLocation } = require('@reach/router');
 // icons
 import CloseIcon from '@material-ui/icons/Close';
 // Drawer Contents
 import Contents from './Contents';
+import DrawerSharer from './DrawerSharer';
 import StateHandler from '../../components/StateHandler';
-import { Action } from '../../utils/reducer';
-import { AppState, LocationWithState } from '../../types';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -26,15 +24,11 @@ const useStyles = makeStyles((theme: Theme) =>
 
 interface Props {
   handleDrawer: () => any;
-  //location: LocationWithState;
-  appState: AppState;
-  contents?: JSX.Element[];
-  dispatch: React.Dispatch<Action>;
+  contents?: JSX.Element | JSX.Element[];
 }
 
-function DrawerInner({ appState, handleDrawer, contents, dispatch }: Props) {
-  const classes = useStyles({});
-  const location: LocationWithState = useLocation();
+function DrawerInner({ handleDrawer, contents }: Props) {
+  const classes = useStyles();
   return (
     <div>
       <div className={classes.toolbar}>
@@ -47,21 +41,12 @@ function DrawerInner({ appState, handleDrawer, contents, dispatch }: Props) {
         </Hidden>
       </div>
       <Divider />
-      {contents
-        ? contents.map((content, index, arr) =>
-            index === arr.length - 1 ? (
-              content
-            ) : (
-              <>
-                {content}
-                <Divider />
-              </>
-            )
-          )
-        : null}
-      <Contents location={location} appState={appState} />
+      {contents}
+      <Contents />
       <Divider />
-      <StateHandler appState={appState} dispatch={dispatch} />
+      <StateHandler />
+      <Divider />
+      <DrawerSharer />
       <Divider />
     </div>
   );

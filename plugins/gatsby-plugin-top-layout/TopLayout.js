@@ -9,13 +9,16 @@ import initialTheme from '../../src/utils/theme';
 import { DispatchContext } from '../../src/utils/DispatchContext';
 import { themeReducer, initialThemeState } from '../../src/utils/themeReducer';
 import useLocalStorage from '../../src/utils/useLocalStorage';
+import AppStateContext from '../../src/utils/AppStateContext';
+import reducer from '../../src/utils/reducer';
+import { initialAppState } from '../../src/types/AppState';
 
 export default function TopLayout(props) {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
   const [storedValue, setValue] = useLocalStorage('paletteType');
-  const [state, dispatch] = React.useReducer(themeReducer, initialThemeState(storedValue ? storedValue === 'dark' : prefersDarkMode));
-  const paletteType = state.darkMode ? 'dark' : 'light';
-  
+  const [themeState, themeDispatch] = React.useReducer(themeReducer, initialThemeState(storedValue ? storedValue === 'dark' : prefersDarkMode));
+  const paletteType = themeState.darkMode ? 'dark' : 'light';
+
   // persist paletteType
   React.useEffect(() => {
     setValue(paletteType);
@@ -36,6 +39,8 @@ export default function TopLayout(props) {
     });
   }, [paletteType]);
 
+  const [state, dispatch] = React.useReducer(reducer, initialAppState);
+
   return (
     <>
       <Helmet>
@@ -45,8 +50,8 @@ export default function TopLayout(props) {
       <ThemeProvider theme={theme}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
-        <DispatchContext.Provider value={dispatch}>
-          {props.children}
+        <DispatchContext.Provider value={themeDispatch}>
+          <AppStateContext.Provider value={{ state, dispatch }}>{props.children}</AppStateContext.Provider>
         </DispatchContext.Provider>
       </ThemeProvider>
     </>

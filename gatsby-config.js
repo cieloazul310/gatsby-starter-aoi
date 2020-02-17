@@ -16,12 +16,7 @@ module.exports = {
         siteUrl: 'https://cieloazul310.github.io'
       }
     },
-    {
-      resolve: `gatsby-plugin-graphql-codegen`,
-      options: {
-        fileName: `types/graphql-types.ts`,
-      }
-    },
+    `gatsby-plugin-graphql-codegen`,
     'gatsby-plugin-sitemap',
     'gatsby-plugin-offline',
     {

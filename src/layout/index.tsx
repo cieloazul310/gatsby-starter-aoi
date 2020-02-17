@@ -2,7 +2,8 @@ import * as React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import Helmet from 'react-helmet';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
+import Container, { ContainerProps } from '@material-ui/core/Container';
+import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import Hidden from '@material-ui/core/Hidden';
 import Drawer from '@material-ui/core/Drawer';
@@ -11,15 +12,11 @@ import Fab from '@material-ui/core/Fab';
 import Link from '@material-ui/core/Link';
 import Tooltip from '@material-ui/core/Tooltip';
 import MenuIcon from '@material-ui/icons/Menu';
-import useTheme from '@material-ui/core/styles/useTheme';
-const { useLocation } = require('@reach/router');
 
 import Header from './Header';
 import MobileNavigation from './MobileNavigation';
 import DrawerInner from './DrawerInner';
-import { Action } from '../utils/reducer';
 import { drawerWidth } from './drawerWidth';
-import { AppState } from '../types';
 import { LayoutQuery } from '../../types/graphql-types';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -33,6 +30,7 @@ const useStyles = makeStyles((theme: Theme) =>
       },
     },
     drawerPaper: {
+      transition: theme.transitions.create('background'),
       width: drawerWidth,
     },
     main: {
@@ -48,22 +46,8 @@ const useStyles = makeStyles((theme: Theme) =>
         paddingTop: 64,
       },
     },
-    content: {
-      padding: `${theme.spacing(4)}px ${theme.spacing(2)}px`,
-      '@global': {
-        a: {
-          color: theme.palette.secondary.main,
-          textDecoration: 'none',
-          '&:hover': {
-            color: theme.palette.secondary.light,
-            textDecoration: 'underline',
-          },
-        },
-      },
-    },
     footer: {
       textAlign: 'center',
-      padding: `${theme.spacing(4)}px ${theme.spacing(2)}px`,
     },
     menuFab: {
       position: 'fixed',
@@ -76,15 +60,14 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-interface Props {
-  dispatch: React.Dispatch<Action>;
-  appState: AppState;
+interface Props extends ContainerProps {
   title?: string;
   children: JSX.Element | JSX.Element[];
+  disablePaddingTop?: boolean;
   drawerContents?: JSX.Element[];
 }
 
-function Layout({ children, title, appState, drawerContents, dispatch }: Props) {
+function Layout({ children, title, drawerContents, disablePaddingTop, ...options }: Props) {
   const data = useStaticQuery<LayoutQuery>(graphql`
     query Layout {
       site {
@@ -98,12 +81,11 @@ function Layout({ children, title, appState, drawerContents, dispatch }: Props) 
       }
     }
   `);
-  const classes = useStyles({});
+  const classes = useStyles();
   const [drawerOpen, toggleDrawer] = React.useState(false);
   const _toggleDrawer = () => {
     toggleDrawer(!drawerOpen);
   };
-  const paletteType = useTheme().palette.type;
 
   return (
     <div className={classes.root}>
@@ -136,52 +118,42 @@ function Layout({ children, title, appState, drawerContents, dispatch }: Props) 
             onClose={_toggleDrawer}
             open={drawerOpen}
           >
-            <DrawerInner
-              appState={appState}
-              handleDrawer={_toggleDrawer}
-              contents={drawerContents}
-              dispatch={dispatch}
-            />
+            <DrawerInner handleDrawer={_toggleDrawer} contents={drawerContents} />
           </SwipeableDrawer>
         </Hidden>
         <Hidden smDown implementation="css">
           <Drawer classes={{ paper: classes.drawerPaper }} variant="permanent" open>
-            <DrawerInner
-              appState={appState}
-              handleDrawer={_toggleDrawer}
-              contents={drawerContents}
-              dispatch={dispatch}
-            />
+            <DrawerInner handleDrawer={_toggleDrawer} contents={drawerContents} />
           </Drawer>
         </Hidden>
       </nav>
       <div className={classes.main}>
-        <Container maxWidth="md">
-          <main>
-            <div className={classes.content}>{children}</div>
-          </main>
-          <footer>
-            <div className={classes.footer}>
-              <Typography variant="body2">
-                © {new Date().getFullYear()}, Built with
-                {` `}
-                <Link color="secondary" href="https://www.gatsbyjs.org">
-                  Gatsby
-                </Link>
-              </Typography>
-            </div>
-          </footer>
-          <Hidden mdUp implementation="css">
-            <Tooltip title="Menu" placement="top">
-              <Fab className={classes.menuFab} onClick={_toggleDrawer} color="secondary">
-                <MenuIcon />
-              </Fab>
-            </Tooltip>
-          </Hidden>
+        <Container {...options}>
+          <Box pt={disablePaddingTop ? 0 : 4} pb={4}>
+            <main>{children}</main>
+            <footer>
+              <div className={classes.footer}>
+                <Typography variant="body2">
+                  © {new Date().getFullYear()}, Built with
+                  {` `}
+                  <Link color="secondary" href="https://www.gatsbyjs.org">
+                    Gatsby
+                  </Link>
+                </Typography>
+              </div>
+            </footer>
+          </Box>
         </Container>
+        <Hidden mdUp implementation="css">
+          <Tooltip title="Menu" placement="top">
+            <Fab className={classes.menuFab} onClick={_toggleDrawer} color="secondary">
+              <MenuIcon />
+            </Fab>
+          </Tooltip>
+        </Hidden>
       </div>
       <Hidden smUp implementation="css">
-        <MobileNavigation appState={appState} />
+        <MobileNavigation />
       </Hidden>
     </div>
   );

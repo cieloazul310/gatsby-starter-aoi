@@ -2,7 +2,7 @@ import * as React from 'react';
 import { storiesOf, addDecorator } from '@storybook/react';
 
 import FabIcon from '../src/components/FabIcon';
-import { faTwitter, faYoutube, faAmazon, faApple } from '@fortawesome/free-brands-svg-icons';
+import { faTwitter, faYoutube, faAmazon, faApple, faGithub } from '@fortawesome/free-brands-svg-icons';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
@@ -37,4 +37,9 @@ storiesOf('FabIcon', module)
       <FabIcon icon={faAmazon} color="inherit" />
       Amazon Link
     </Button>
+  ))
+  .add('as a Icon Button', () => (
+    <IconButton>
+      <FabIcon icon={faGithub} color="inherit" />
+    </IconButton>
   ));

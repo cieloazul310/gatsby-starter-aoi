@@ -1,12 +1,12 @@
 export const initialThemeState = (prefersDarkMode: boolean): ThemeState => ({
-  darkMode: prefersDarkMode
+  darkMode: prefersDarkMode,
 });
 
 export interface ThemeState {
   darkMode: boolean;
 }
 
-export type ThemeAction = { type: 'TOGGLE_DARKMODE'; };
+export type ThemeAction = { type: 'TOGGLE_DARKMODE' };
 
 export const themeReducer = (state: ThemeState, action: ThemeAction) => {
   switch (action.type) {

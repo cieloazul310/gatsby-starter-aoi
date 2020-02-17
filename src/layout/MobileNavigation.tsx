@@ -6,11 +6,10 @@ import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import Home from '@material-ui/icons/Home';
 import MusicNote from '@material-ui/icons/MusicNote';
 import Settings from '@material-ui/icons/Settings';
-const { useLocation } = require('@reach/router');
-
+import { useLocation } from '@reach/router';
 import { appNavigate } from '../components/AppLink';
 import locationToRelativePath from '../utils/locationToRelativePath';
-import { LocationWithState, AppState } from '../types';
+import { useAppState } from '../utils/AppStateContext';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -23,20 +22,17 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-interface Props {
-  appState: AppState;
-}
-
-function MobileNavigation({ appState }: Props) {
-  const classes = useStyles({});
-  const location: LocationWithState = useLocation();
+function MobileNavigation() {
+  const classes = useStyles();
+  const location = useLocation();
+  const state = useAppState();
   return (
     <BottomNavigation
       className={classes.root}
       value={locationToRelativePath(location)}
       showLabels
-      onChange={(e, value) => {
-        appNavigate(value, appState);
+      onChange={(e, value: string) => {
+        appNavigate(value, { state });
       }}
     >
       <BottomNavigationAction label="Top" value="" icon={<Home />} />

@@ -1,27 +1,26 @@
 import * as React from 'react';
 import { Link, navigate } from 'gatsby';
+import MuiLink from '@material-ui/core/Link';
 import { NavigateOptions } from '@reach/router';
 import classNames from 'classnames';
-import { AppState } from '../types';
+import { AppState } from '../types/AppState';
+import { useAppState } from '../utils/AppStateContext';
 
 interface Props {
   className?: string;
   children: JSX.Element | JSX.Element[] | string;
   to: string;
-  appState: AppState;
 }
 
-export function AppLink({ className, children, to, appState }: Props) {
+export function AppLink({ className, children, to }: Props) {
+  const appState = useAppState();
   return (
-    <Link className={classNames(className)} to={to} state={{ appState }}>
+    <MuiLink component={Link} className={classNames(className)} to={to} state={{ appState }} color="secondary">
       {children}
-    </Link>
+    </MuiLink>
   );
 }
 
-export function appNavigate(to: string, appState: AppState, options: NavigateOptions<{}> = {}) {
-  navigate(to, {
-    ...options,
-    state: { appState },
-  });
+export function appNavigate(to: string, options: NavigateOptions<AppState> = {}) {
+  navigate(to, options);
 }

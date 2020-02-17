@@ -2,11 +2,9 @@ import * as React from 'react';
 import classNames from 'classnames';
 import IconButton, { IconButtonProps } from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
-const { useLocation } = require('@reach/router');
-//import FabIcon from '../components/FabIcon';
+import { useLocation } from '@reach/router';
 import FabIcon from '../components/FabIcon';
 import { faTwitter, faFacebookF, faGithub } from '@fortawesome/free-brands-svg-icons';
-import { LocationWithState } from '../types';
 import { shareOnTwitter, shareOnFacebook } from '../utils/sharer';
 import { IconProps } from '@material-ui/core/Icon';
 
@@ -14,18 +12,17 @@ interface Props {
   className?: string;
   fontSize?: IconProps['fontSize'];
   color?: IconButtonProps['color'];
-  title: string;
-  //location: LocationWithState;
+  title?: string;
 }
 
 function ShareButtons({ className, title, fontSize, color }: Props) {
-  const location: LocationWithState = useLocation();
+  const location = useLocation();
   return (
     <div className={classNames(className)}>
       <Tooltip title="Share on Twitter">
         <IconButton
           color={color || 'default'}
-          href={shareOnTwitter({ url: location.href, title: title })}
+          href={shareOnTwitter({ url: location.href, title: title || document.title })}
           target="_blank"
           rel="noopener noreferrer"
         >

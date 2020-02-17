@@ -7,5 +7,5 @@ export const DispatchContext = React.createContext<React.Dispatch<ThemeAction>>(
 
 export function useToggleDark() {
   const dispatch = React.useContext(DispatchContext);
-  return React.useCallback(() => dispatch({ type: "TOGGLE_DARKMODE" }), [dispatch]);
+  return React.useCallback(() => dispatch({ type: 'TOGGLE_DARKMODE' }), [dispatch]);
 }
