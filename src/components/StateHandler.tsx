@@ -61,7 +61,7 @@ function StateHandler({}: Props) {
         <ListItemIcon>
           <ExposureIcon />
         </ListItemIcon>
-        <ListItemText primary="State" />
+        <ListItemText primary="Counter" />
         {collapseOpen ? <ExpandLess /> : <ExpandMore />}
       </ListItem>
       <Collapse in={collapseOpen} timeout="auto" unmountOnExit>

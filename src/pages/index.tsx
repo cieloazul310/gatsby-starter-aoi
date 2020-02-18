@@ -9,7 +9,7 @@ import CounterButton from '../components/CounterButton';
 import LoremIpsum from '../components/lorem-ipsum/LoremIpusm';
 import { useAppState } from '../utils/AppStateContext';
 
-import { IndexQuery } from '../../types/graphql-types';
+import { IndexQuery } from '../../graphql-types';
 
 interface Props {
   //location: LocationWithState;

@@ -11,6 +11,7 @@ DEMO: https://cieloazul310.github.io/gatsby-starter-typescript-material-ui/
 - Storybook
 - Responsive UI
 - Hold App State
+- Dark Mode
 
 <!--
 The [default Gatsby starter](https://github.com/gatsbyjs/gatsby-starter-default) converted to [TypeScript](https://www.typescriptlang.org/).

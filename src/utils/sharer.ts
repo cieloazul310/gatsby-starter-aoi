@@ -14,3 +14,7 @@ interface ShareOnFacebookProps {
 
 export const shareOnFacebook = ({ url }: ShareOnFacebookProps): string =>
   `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+
+export const shareOnLine = ({ url }: { url: string }): string => {
+  return `https://social-plugins.line.me/lineit/share?url=${encodeURIComponent(url)}`;
+};

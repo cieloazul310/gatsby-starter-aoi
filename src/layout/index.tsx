@@ -17,7 +17,8 @@ import Header from './Header';
 import MobileNavigation from './MobileNavigation';
 import DrawerInner from './DrawerInner';
 import { drawerWidth } from './drawerWidth';
-import { LayoutQuery } from '../../types/graphql-types';
+import Socials from './Socials';
+import { LayoutQuery } from '../../graphql-types';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -62,21 +63,21 @@ const useStyles = makeStyles((theme: Theme) =>
 
 interface Props extends ContainerProps {
   title?: string;
+  description?: string;
   children: JSX.Element | JSX.Element[];
   disablePaddingTop?: boolean;
   drawerContents?: JSX.Element[];
 }
 
-function Layout({ children, title, drawerContents, disablePaddingTop, ...options }: Props) {
+function Layout({ children, title, description, drawerContents, disablePaddingTop, ...options }: Props) {
   const data = useStaticQuery<LayoutQuery>(graphql`
     query Layout {
       site {
         siteMetadata {
           title
+          lang
           description
-          author {
-            name
-          }
+          author
         }
       }
     }
@@ -86,28 +87,31 @@ function Layout({ children, title, drawerContents, disablePaddingTop, ...options
   const _toggleDrawer = () => {
     toggleDrawer(!drawerOpen);
   };
+  const metaDescription = description || data.site.siteMetadata.description;
 
   return (
     <div className={classes.root}>
       <Helmet
-        title={title ? `${title} | ${data.site.siteMetadata.title}` : data.site.siteMetadata.title}
+        htmlAttributes={{ lang: data.site.siteMetadata.lang || 'en' }}
+        title={title}
+        titleTemplate={`%s | ${data.site.siteMetadata.title}`}
         meta={[
           {
             name: 'description',
-            content: data.site.siteMetadata.description,
+            content: metaDescription
           },
           { name: 'keywords', content: 'sample, something' },
           { name: 'twitter:card', content: 'summary' },
           {
             name: 'twitter:title',
-            content: title ? `${title} | ${data.site.siteMetadata.title}` : data.site.siteMetadata.title,
+            content: title ? `${title} | ${data.site.siteMetadata.title}` : data.site.siteMetadata.title
           },
           {
             name: 'twitter:description',
-            content: data.site.siteMetadata.description,
-          },
+            content: metaDescription
+          }
         ]}
-      />
+      ></Helmet>
       <Header title={title || data.site.siteMetadata.title} toggleDrawer={_toggleDrawer} />
       <nav className={classes.drawer}>
         <Hidden mdUp implementation="css">
@@ -133,8 +137,9 @@ function Layout({ children, title, drawerContents, disablePaddingTop, ...options
             <main>{children}</main>
             <footer>
               <div className={classes.footer}>
-                <Typography variant="body2">
-                  © {new Date().getFullYear()}, Built with
+                <Socials />
+                <Typography variant="body2" component="small">
+                  © {new Date().getFullYear()} {data.site.siteMetadata.author} All rights reserved. Built with
                   {` `}
                   <Link color="secondary" href="https://www.gatsbyjs.org">
                     Gatsby

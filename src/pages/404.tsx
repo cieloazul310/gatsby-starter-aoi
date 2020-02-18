@@ -7,7 +7,7 @@ import { AppLink } from '../components/AppLink';
 function NotFoundPage() {
   const location = useLocation();
   return (
-    <Layout title="Not Found">
+    <Layout title="Not Found" maxWidth="md">
       <Typography variant="h2" gutterBottom>
         NOT FOUND
       </Typography>

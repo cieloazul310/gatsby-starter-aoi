@@ -14,11 +14,20 @@ import Jugem from '../components/lorem-ipsum/Jugem';
 import Korean from '../components/lorem-ipsum/Korean';
 import { useAppState, useDispatch } from '../utils/AppStateContext';
 import { AppState } from '../types';
-/*
-interface Props {
-  
+
+interface TabPaneProps {
+  hidden: boolean;
+  children: JSX.Element | JSX.Element[];
 }
-*/
+
+function TabPane({ hidden, children }: TabPaneProps) {
+  return (
+    <Box py={4} hidden={hidden} role="tabpanel">
+      {children}
+    </Box>
+  );
+}
+
 function SecondPage() {
   const { count, tab } = useAppState();
   const dispatch = useDispatch();
@@ -38,25 +47,25 @@ function SecondPage() {
         <Tab label="Tab 5" />
       </Tabs>
       <SwipeableView index={tab} onChangeIndex={_handleChangeIndex} resistance>
-        <Box py={4} hidden={tab !== 0}>
+        <TabPane hidden={tab !== 0}>
           <Typography variant="h2" gutterBottom>
             Jugem
           </Typography>
           <Jugem />
-        </Box>
-        <Box py={4} hidden={tab !== 1}>
+        </TabPane>
+        <TabPane hidden={tab !== 1}>
           <Typography variant="h2" gutterBottom>
             Latin
           </Typography>
           <LoremIpsum />
-        </Box>
-        <Box py={4} hidden={tab !== 2}>
+        </TabPane>
+        <TabPane hidden={tab !== 2}>
           <Typography variant="h2" gutterBottom>
             Korean
           </Typography>
           <Korean />
-        </Box>
-        <Box py={4} hidden={tab !== 3}>
+        </TabPane>
+        <TabPane hidden={tab !== 3}>
           <Typography variant="h2" gutterBottom>
             Hi from the second page
           </Typography>
@@ -77,8 +86,8 @@ function SecondPage() {
               RESET
             </CounterButton>
           </ButtonGroup>
-        </Box>
-        <Box py={4} hidden={tab !== 4}>
+        </TabPane>
+        <TabPane hidden={tab !== 4}>
           <Typography variant="h2" gutterBottom>
             Hi from the second page
           </Typography>
@@ -114,7 +123,7 @@ function SecondPage() {
           <Typography variant="body1">
             <AppLink to="/">Go back to the homepage</AppLink>
           </Typography>
-        </Box>
+        </TabPane>
       </SwipeableView>
     </Layout>
   );
