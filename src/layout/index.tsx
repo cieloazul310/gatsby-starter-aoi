@@ -98,18 +98,18 @@ function Layout({ children, title, description, drawerContents, disablePaddingTo
         meta={[
           {
             name: 'description',
-            content: metaDescription
+            content: metaDescription,
           },
           { name: 'keywords', content: 'sample, something' },
           { name: 'twitter:card', content: 'summary' },
           {
             name: 'twitter:title',
-            content: title ? `${title} | ${data.site.siteMetadata.title}` : data.site.siteMetadata.title
+            content: title ? `${title} | ${data.site.siteMetadata.title}` : data.site.siteMetadata.title,
           },
           {
             name: 'twitter:description',
-            content: metaDescription
-          }
+            content: metaDescription,
+          },
         ]}
       ></Helmet>
       <Header title={title || data.site.siteMetadata.title} toggleDrawer={_toggleDrawer} />

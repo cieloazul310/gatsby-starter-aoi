@@ -34,7 +34,8 @@
     "typescript": "^3.7.5"
   },
   "keywords": [
-    "gatsby, typescript",
+    "gatsby", 
+    "typescript",
     "material-ui"
   ],
   "license": "MIT",
@@ -43,6 +44,7 @@
     "build": "gatsby build --prefix-paths",
     "develop": "gatsby develop -o -H 0.0.0.0",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public",
+    "publish": "gh-pages -d public",
     "format": "prettier --parser typescript --trailing-comma es5 --single-quote --write \"src/**/*.ts*\"",
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -p 6006",
@@ -64,9 +66,5 @@
     "tslint": "^5.13.1",
     "tslint-config-prettier": "^1.18.0",
     "tslint-plugin-prettier": "^2.0.1"
-  },
-  "contributors": [
-    "fabien0102 <fabien0102@gmail.com>",
-    "Hays Clark <hays.clark@gmail.com>"
-  ]
+  }
 }

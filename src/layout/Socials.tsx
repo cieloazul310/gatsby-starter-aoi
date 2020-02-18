@@ -3,7 +3,19 @@ import { useStaticQuery, graphql } from 'gatsby';
 import Box from '@material-ui/core/Box';
 import Link from '@material-ui/core/Link';
 import EMailIcon from '@material-ui/icons/EMail';
-import { faTwitter, faFacebookF, faGithub, faGitlab, faMedium, faLinkedin, faInstagram, faTumblr, faGetPocket, faYoutube, faVimeo } from '@fortawesome/free-brands-svg-icons';
+import {
+  faTwitter,
+  faFacebookF,
+  faGithub,
+  faGitlab,
+  faMedium,
+  faLinkedin,
+  faInstagram,
+  faTumblr,
+  faGetPocket,
+  faYoutube,
+  faVimeo,
+} from '@fortawesome/free-brands-svg-icons';
 import FabIcon from '../components/FabIcon';
 import { SocialsQuery } from '../../graphql-types';
 
@@ -46,7 +58,20 @@ function Socials() {
       }
     }
   `);
-  const { mail, github, twitter, facebook, gitlab, medium, linkedin, pocket, tumblr, instagram, youtube, vimeo } = data.site.siteMetadata.social;
+  const {
+    mail,
+    github,
+    twitter,
+    facebook,
+    gitlab,
+    medium,
+    linkedin,
+    pocket,
+    tumblr,
+    instagram,
+    youtube,
+    vimeo,
+  } = data.site.siteMetadata.social;
 
   return (
     <Box pt={4}>
