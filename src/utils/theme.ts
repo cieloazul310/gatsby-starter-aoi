@@ -1,26 +1,11 @@
-import teal from '@material-ui/core/colors/teal';
-import orange from '@material-ui/core/colors/orange';
+import indigo from '@material-ui/core/colors/indigo';
+import red from '@material-ui/core/colors/red';
 import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
 
 const theme = createMuiTheme({
   palette: {
-    primary: teal,
-    secondary: orange,
-  },
-  typography: {
-    fontFamily: [
-      '-apple-system',
-      'YuGothic',
-      'BlinkMacSystemFont',
-      '"Segoe UI"',
-      'Roboto',
-      '"Helvetica Neue"',
-      'Arial',
-      'sans-serif',
-      '"Apple Color Emoji"',
-      '"Segoe UI Emoji"',
-      '"Segoe UI Symbol"',
-    ].join(','),
+    primary: indigo,
+    secondary: red,
   },
 });
 

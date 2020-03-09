@@ -1,4 +1,4 @@
-import { AppState } from '../types/';
+import { AppState } from './AppState';
 
 export type Action = { type: 'INCREMENT' } | { type: 'DECREMENT' } | { type: 'RESET_COUNT' } | { type: 'SET_TAB'; index: AppState['tab'] };
 

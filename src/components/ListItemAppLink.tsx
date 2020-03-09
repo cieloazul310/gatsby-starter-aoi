@@ -1,28 +1,29 @@
 import * as React from 'react';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
+import { Link as GatsbyLink, GatsbyLinkProps } from 'gatsby';
+import ListItem, { ListItemProps } from '@material-ui/core/ListItem';
 
-import { AppLink } from './AppLink';
+type GatsbyLinkComposedProps<T = {}> = Omit<GatsbyLinkProps<T>, 'ref'>;
 
-interface ListItemAppLinkProps {
-  icon: JSX.Element;
-  primary: string;
-  to: string;
-  selected: boolean;
+const GatsbyLinkComposed = React.forwardRef<any, GatsbyLinkComposedProps>((props, ref) => {
+  const { replace = true, to, state, ...other } = props;
+  return <GatsbyLink to={to} replace={replace} state={state} ref={ref} {...other} />;
+});
+
+interface ListItemAppLinkPropsBase {
+  innerRef?: React.Ref<any>;
+  naked?: boolean;
 }
 
-function ListItemAppLink({ icon, primary, to, selected }: ListItemAppLinkProps) {
-  const renderLink = React.useMemo(() => React.forwardRef((itemProps: any, ref) => <AppLink to={to} {...itemProps} innerRef={ref} />), [
-    to,
-  ]);
+export type ListItemAppLinkProps = ListItemAppLinkPropsBase & GatsbyLinkComposedProps & Omit<ListItemProps<'a'>, 'ref'>;
 
-  return (
-    <ListItem button component={renderLink} selected={selected}>
-      {icon && <ListItemIcon>{icon}</ListItemIcon>}
-      <ListItemText primary={primary} />
-    </ListItem>
-  );
+export function ListItemAppLink(props: ListItemAppLinkProps) {
+  const { className, innerRef, naked, to, ...other } = props;
+
+  if (naked) {
+    return <GatsbyLinkComposed className={className} ref={innerRef} to={to} {...other} />;
+  }
+
+  return <ListItem component={GatsbyLinkComposed} className={className} to={to} ref={innerRef} {...other} />;
 }
 
 export default ListItemAppLink;

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { AppState, initialAppState } from '../types/AppState';
+import { AppState, initialAppState } from './AppState';
 import { Action } from './reducer';
 
 const AppStateContext = React.createContext<{ state: AppState; dispatch: React.Dispatch<Action> }>({

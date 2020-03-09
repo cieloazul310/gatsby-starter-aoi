@@ -8,15 +8,19 @@ import IconButton from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
 // icons
 import MenuIcon from '@material-ui/icons/Menu';
+import { useSiteMetadata } from '../../graphql-hooks';
 import ShareButtons from './ShareButtons';
-import { drawerWidth } from './drawerWidth';
 
-const useStyles = makeStyles((theme: Theme) =>
+interface StylesProps {
+  drawerWidth: number;
+}
+
+const useStyles = makeStyles<Theme, StylesProps>((theme: Theme) =>
   createStyles({
     root: {
       width: '100%',
       [theme.breakpoints.up('md')]: {
-        width: `calc(100% - ${drawerWidth}px)`,
+        width: ({ drawerWidth }) => `calc(100% - ${drawerWidth}px)`,
       },
       backgroundColor: theme.palette.type === 'dark' ? '#222' : null,
       color: theme.palette.type === 'dark' ? theme.palette.text.primary : null,
@@ -26,6 +30,7 @@ const useStyles = makeStyles((theme: Theme) =>
       flex: 1,
       paddingLeft: theme.spacing(1),
       paddingRight: theme.spacing(1),
+      lineHeight: 1.2,
     },
   })
 );
@@ -33,22 +38,24 @@ const useStyles = makeStyles((theme: Theme) =>
 interface Props {
   title: string;
   toggleDrawer: () => any;
+  drawerWidth?: number;
 }
 
-function Header({ title, toggleDrawer }: Props) {
-  const classes = useStyles();
+function Header({ title, toggleDrawer, drawerWidth = 280 }: Props) {
+  const classes = useStyles({ drawerWidth });
+  const siteMetadata = useSiteMetadata();
   return (
     <AppBar className={classes.root}>
       <Toolbar>
         <Hidden xsDown mdUp implementation="css">
           <Tooltip title="Menu">
-            <IconButton color="inherit" onClick={toggleDrawer}>
+            <IconButton color="inherit" onClick={toggleDrawer} edge="start">
               <MenuIcon />
             </IconButton>
           </Tooltip>
         </Hidden>
         <Typography className={classes.title} variant="h6" component="h1" color="inherit">
-          {title}
+          {title || siteMetadata.title}
         </Typography>
         <Hidden smDown implementation="css">
           <ShareButtons color="inherit" title={title} />

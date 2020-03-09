@@ -4,29 +4,16 @@ import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import Box from '@material-ui/core/Box';
 import SwipeableView from 'react-swipeable-views';
-import Layout from '../layout';
+import TabPageLayout from '../layout/TabPageLayout';
+import TabPane from '../layout/TabPane';
 import { AppLink } from '../components/AppLink';
 import CounterButton from '../components/CounterButton';
 import LoremIpsum from '../components/lorem-ipsum/LoremIpusm';
 import Jugem from '../components/lorem-ipsum/Jugem';
 import Korean from '../components/lorem-ipsum/Korean';
 import { useAppState, useDispatch } from '../utils/AppStateContext';
-import { AppState } from '../types';
-
-interface TabPaneProps {
-  hidden: boolean;
-  children: JSX.Element | JSX.Element[];
-}
-
-function TabPane({ hidden, children }: TabPaneProps) {
-  return (
-    <Box py={4} hidden={hidden} role="tabpanel">
-      {children}
-    </Box>
-  );
-}
+import { AppState } from '../utils/AppState';
 
 function SecondPage() {
   const { count, tab } = useAppState();
@@ -37,35 +24,42 @@ function SecondPage() {
   const _handleChangeIndex = (index: AppState['tab']) => {
     dispatch({ type: 'SET_TAB', index });
   };
+  const tabs = (
+    <Tabs value={tab} onChange={_handleChangeTab} variant="scrollable" scrollButtons="auto">
+      <Tab label="Tab 1" />
+      <Tab label="Tab 2" />
+      <Tab label="Tab 3" />
+      <Tab label="Tab 4" />
+      <Tab label="Tab 5" />
+    </Tabs>
+  );
   return (
-    <Layout title="Second Page" disablePaddingTop>
-      <Tabs value={tab} onChange={_handleChangeTab} indicatorColor="primary" textColor="primary" variant="scrollable" scrollButtons="auto">
-        <Tab label="Tab 1" />
-        <Tab label="Tab 2" />
-        <Tab label="Tab 3" />
-        <Tab label="Tab 4" />
-        <Tab label="Tab 5" />
-      </Tabs>
+    <TabPageLayout
+      title="Second Page"
+      disablePaddingTop
+      tabSticky
+      tabs={tabs}
+    >
       <SwipeableView index={tab} onChangeIndex={_handleChangeIndex} resistance>
-        <TabPane hidden={tab !== 0}>
+        <TabPane index={0} value={tab}>
           <Typography variant="h2" gutterBottom>
             Jugem
           </Typography>
-          <Jugem />
+          <Jugem paragraph />
         </TabPane>
-        <TabPane hidden={tab !== 1}>
+        <TabPane index={1} value={tab}>
           <Typography variant="h2" gutterBottom>
             Latin
           </Typography>
-          <LoremIpsum />
+          <LoremIpsum paragraph />
         </TabPane>
-        <TabPane hidden={tab !== 2}>
+        <TabPane index={2} value={tab}>
           <Typography variant="h2" gutterBottom>
             Korean
           </Typography>
-          <Korean />
+          <Korean paragraph />
         </TabPane>
-        <TabPane hidden={tab !== 3}>
+        <TabPane index={3} value={tab}>
           <Typography variant="h2" gutterBottom>
             Hi from the second page
           </Typography>
@@ -87,7 +81,7 @@ function SecondPage() {
             </CounterButton>
           </ButtonGroup>
         </TabPane>
-        <TabPane hidden={tab !== 4}>
+        <TabPane index={4} value={tab}>
           <Typography variant="h2" gutterBottom>
             Hi from the second page
           </Typography>
@@ -125,7 +119,7 @@ function SecondPage() {
           </Typography>
         </TabPane>
       </SwipeableView>
-    </Layout>
+    </TabPageLayout>
   );
 }
 

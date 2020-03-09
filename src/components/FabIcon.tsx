@@ -17,7 +17,7 @@ function FabIcon({ icon, defaultVertical, ...options }: Props) {
         icon={icon}
         style={{
           verticalAlign: !defaultVertical ? '0.125em' : undefined,
-          transform: dy !== null ? `translateX(${dy / sizeToFontSize(options.fontSize)}px)` : undefined,
+          transform: dy !== null ? `translateX(${dy / sizeToFontSize(options.fontSize)}px)` : undefined
         }}
       />
     </Icon>

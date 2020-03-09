@@ -1,20 +1,31 @@
 import * as React from 'react';
+import { withPrefix } from 'gatsby';
 import List from '@material-ui/core/List';
 import ListSubheader from '@material-ui/core/ListSubheader';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
 // icons
-import Home from '@material-ui/icons/Home';
-import MusicNote from '@material-ui/icons/MusicNote';
+import HomeIcon from '@material-ui/icons/Home';
+import SportsHandballIcon from '@material-ui/icons/SportsHandball';
 import ListItemAppLink from '../../components/ListItemAppLink';
-import locationToRelativePath from '../../utils/locationToRelativePath';
 import { useLocation } from '@reach/router';
 
 function Contents() {
-  const location = useLocation();
-  const currentPath = locationToRelativePath(location);
+  const { pathname } = useLocation();
   return (
-    <List subheader={<ListSubheader>Contents</ListSubheader>}>
-      <ListItemAppLink to="/" primary="Top" icon={<Home />} selected={currentPath === ''} />
-      <ListItemAppLink to="/page-2/" primary="Page 2" icon={<MusicNote />} selected={currentPath === 'page-2/'} />
+    <List subheader={<ListSubheader>Contents</ListSubheader>} role="menu">
+      <ListItemAppLink to="/" button selected={pathname === withPrefix('/')} role="menuitem">
+        <ListItemIcon>
+          <HomeIcon />
+        </ListItemIcon>
+        <ListItemText primary="Top" />
+      </ListItemAppLink>
+      <ListItemAppLink to="/page-2/" button selected={pathname === withPrefix('/page-2/')} role="menuitem">
+        <ListItemIcon>
+          <SportsHandballIcon />
+        </ListItemIcon>
+        <ListItemText primary="Page-2" />
+      </ListItemAppLink>
     </List>
   );
 }

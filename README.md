@@ -1,8 +1,13 @@
-# gatsby-starter-typescript-material-ui
+# gatsby-starter-aoi
 
 > A starter kit for TypeScript-based Gatsby projects Material-UI.
 
-DEMO: https://cieloazul310.github.io/gatsby-starter-typescript-material-ui/
+DEMO: https://cieloazul310.github.io/gatsby-starter-aoi/
+
+## NOTE
+
+- This repository was renamed from `gatsby-starter-typescript-material-ui`.
+- This starter will migration to Gatsby Theme, so would be not mantained so long.
 
 ## Features
 

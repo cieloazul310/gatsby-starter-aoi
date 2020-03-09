@@ -1,9 +1,10 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Typescript App Shell`,
+    title: `Gatsby Starter Aoi`,
     description: 'A GatsbyJS starter using Material Design written with TypeScript.',
-    lang: 'ja',
-    siteUrl: 'https://cieloazul310.github.io/gatsby-starter-typescript-material-ui/',
+    keywords: ['Gatsby', 'Gatbsy Starter', 'TypeScript', 'Material-UI'],
+    lang: '',
+    siteUrl: 'https://cieloazul310.github.io/gatsby-starter-aoi/',
     author: 'cieloazul310',
     social: {
       mail: 'mail@cieloazul310.com',
@@ -20,7 +21,7 @@ module.exports = {
       youtube: 'hollytube0310'
     }
   },
-  pathPrefix: '/gatsby-starter-typescript-material-ui',
+  pathPrefix: '/gatsby-starter-aoi',
   plugins: [
     'gatsby-plugin-top-layout',
     {
@@ -35,9 +36,9 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter TypeScript Material-UI`,
-        short_name: `Gatsby MUI`,
-        scope: '/gatsby-starter-typescript-material-ui/',
+        name: `Gatsby Starter Aoi`,
+        short_name: `Gatsby Aoi`,
+        scope: '/gatsby-starter-aoi/',
         start_url: `/`,
         background_color: `#f7f0eb`,
         theme_color: `#009688`,

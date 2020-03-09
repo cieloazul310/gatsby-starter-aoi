@@ -1,26 +1,50 @@
 import * as React from 'react';
-import { Link, navigate } from 'gatsby';
-import MuiLink from '@material-ui/core/Link';
-import { NavigateOptions } from '@reach/router';
-import classNames from 'classnames';
-import { AppState } from '../types/AppState';
-import { useAppState } from '../utils/AppStateContext';
+import { Link as GatsbyLink, GatsbyLinkProps, navigate, withPrefix } from 'gatsby';
+import MuiLink, { LinkProps as MuiLinkProps } from '@material-ui/core/Link';
+import { useLocation, NavigateOptions } from '@reach/router';
+import clsx from 'clsx';
 
-interface Props {
-  className?: string;
-  children: JSX.Element | JSX.Element[] | string;
-  to: string;
+type GatsbyLinkComposedProps<T = {}> = Omit<GatsbyLinkProps<T>, 'ref'>;
+
+const GatsbyLinkComposed = React.forwardRef<any, GatsbyLinkComposedProps>((props, ref) => {
+  const { to, state, ...other } = props;
+  return <GatsbyLink to={to} state={state} ref={ref} {...other} />;
+});
+interface LinkPropsBase {
+  activeClassName?: string;
+  innerRef?: React.Ref<HTMLAnchorElement>;
+  naked?: boolean;
 }
 
-export function AppLink({ className, children, to }: Props) {
-  const appState = useAppState();
+export type AppLinkProps = LinkPropsBase & GatsbyLinkComposedProps & Omit<MuiLinkProps, 'href'>;
+
+export function AppLink(props: AppLinkProps) {
+  const {
+    activeClassName = 'active',
+    className: classNameProps,
+    color = 'secondary',
+    underline = 'hover',
+    innerRef,
+    naked,
+    to,
+    ...other
+  } = props;
+  const { pathname } = useLocation();
+
+  const className = clsx(classNameProps, {
+    [activeClassName]: pathname === withPrefix(to) && activeClassName
+  });
+
+  if (naked) {
+    return <GatsbyLinkComposed className={className} ref={innerRef} to={to} {...other} />;
+  }
+
   return (
-    <MuiLink component={Link} className={classNames(className)} to={to} state={{ appState }} color="secondary">
-      {children}
-    </MuiLink>
+    <MuiLink component={GatsbyLinkComposed} className={className} to={to} ref={innerRef} color={color} underline={underline} {...other} />
   );
 }
+export default AppLink;
 
-export function appNavigate(to: string, options: NavigateOptions<AppState> = {}) {
+export function appNavigate<T>(to: string, options: NavigateOptions<T> = {}) {
   navigate(to, options);
 }

@@ -30,9 +30,7 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-interface Props {}
-
-function StateHandler({}: Props) {
+function StateHandler() {
   const classes = useStyles();
   const dispatch = useDispatch();
   const [collapseOpen, handleCollapseOpen] = React.useState(false);

@@ -11,7 +11,7 @@ import { themeReducer, initialThemeState } from '../../src/utils/themeReducer';
 import useLocalStorage from '../../src/utils/useLocalStorage';
 import AppStateContext from '../../src/utils/AppStateContext';
 import reducer from '../../src/utils/reducer';
-import { initialAppState } from '../../src/types/AppState';
+import { initialAppState } from '../../src/utils/AppState';
 
 export default function TopLayout(props) {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
