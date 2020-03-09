@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[6],{b804:function(t,e,n){"use strict";n.r(e);var a=n("mXGw"),i=n("/ZiB"),r=n("8yLC"),o=n("1IAT");e.default=function(){return a.createElement(r.a,{title:"Settings"},a.createElement(i.a,{variant:"h2",gutterBottom:!0},"Settings"),a.createElement(i.a,{variant:"h5",gutterBottom:!0},"This is Settings Page for App."),a.createElement(o.a,null))}}}]);
+//# sourceMappingURL=component---src-pages-settings-tsx-2d37905a4845807f8f06.js.map
