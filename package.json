@@ -1,7 +1,7 @@
 {
   "name": "gatsby-starter-aoi",
   "description": "Gatsby TypeScript Material-UI Starter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "cieloazul310 <cieloazul310@gmail.com>",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.15",
