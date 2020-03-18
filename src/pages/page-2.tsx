@@ -5,7 +5,7 @@ import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import SwipeableView from 'react-swipeable-views';
-import TabPageLayout from '../layout/TabPageLayout';
+import TabPageLayout from '../layouts/TabPageLayout';
 import TabPane from '../layout/TabPane';
 import { AppLink } from '../components/AppLink';
 import CounterButton from '../components/CounterButton';
@@ -34,12 +34,7 @@ function SecondPage() {
     </Tabs>
   );
   return (
-    <TabPageLayout
-      title="Second Page"
-      disablePaddingTop
-      tabSticky
-      tabs={tabs}
-    >
+    <TabPageLayout title="Second Page" disablePaddingTop tabSticky tabs={tabs}>
       <SwipeableView index={tab} onChangeIndex={_handleChangeIndex} resistance>
         <TabPane index={0} value={tab}>
           <Typography variant="h2" gutterBottom>

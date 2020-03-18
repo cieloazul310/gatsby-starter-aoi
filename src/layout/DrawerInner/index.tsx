@@ -1,7 +1,5 @@
 import * as React from 'react';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
-import Box from '@material-ui/core/Box';
-import Hidden from '@material-ui/core/Hidden';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
@@ -10,7 +8,7 @@ import CloseIcon from '@material-ui/icons/Close';
 // Drawer Contents
 import Contents from './Contents';
 import DrawerSharer from './DrawerSharer';
-import StateHandler from '../../components/StateHandler';
+import StateHandler from './StateHandler';
 import DrawerFooter from './DrawerFooter';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -36,26 +34,25 @@ interface Props {
 function DrawerInner({ handleDrawer, contents, title }: Props) {
   const classes = useStyles();
   return (
-    <Box>
-      <Box className={classes.toolbar}>
-        <Hidden mdUp>
-          <Tooltip title="Close">
-            <IconButton onClick={handleDrawer} edge="start">
-              <CloseIcon />
-            </IconButton>
-          </Tooltip>
-        </Hidden>
-      </Box>
+    <div>
+      <div className={classes.toolbar}>
+        <Tooltip title="Close">
+          <IconButton onClick={handleDrawer} edge="start">
+            <CloseIcon />
+          </IconButton>
+        </Tooltip>
+      </div>
       <Divider />
       {contents}
       <Divider />
       <Contents />
+      <Divider />
       <StateHandler />
       <Divider />
       <DrawerSharer title={title} />
       <Divider />
       <DrawerFooter />
-    </Box>
+    </div>
   );
 }
 

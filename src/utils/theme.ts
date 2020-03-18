@@ -1,10 +1,10 @@
-import indigo from '@material-ui/core/colors/indigo';
+import blue from '@material-ui/core/colors/blue';
 import red from '@material-ui/core/colors/red';
 import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
 
 const theme = createMuiTheme({
   palette: {
-    primary: indigo,
+    primary: blue,
     secondary: red,
   },
 });

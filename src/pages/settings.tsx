@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Typography from '@material-ui/core/Typography';
 import Layout from '../layout';
-import StateHandler from '../components/StateHandler';
+import StateHandler from '../layout/DrawerInner/StateHandler';
 
 function SettingsPage() {
   return (

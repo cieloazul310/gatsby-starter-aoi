@@ -5,8 +5,8 @@ import ListItem, { ListItemProps } from '@material-ui/core/ListItem';
 type GatsbyLinkComposedProps<T = {}> = Omit<GatsbyLinkProps<T>, 'ref'>;
 
 const GatsbyLinkComposed = React.forwardRef<any, GatsbyLinkComposedProps>((props, ref) => {
-  const { replace = true, to, state, ...other } = props;
-  return <GatsbyLink to={to} replace={replace} state={state} ref={ref} {...other} />;
+  const { to, state, ...other } = props;
+  return <GatsbyLink to={to} state={state} ref={ref} {...other} />;
 });
 
 interface ListItemAppLinkPropsBase {

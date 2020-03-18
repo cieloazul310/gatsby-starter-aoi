@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Typography, { TypographyProps } from '@material-ui/core/Typography';
 
-type Props = Pick<TypographyProps, "variant" | "paragraph">;
+type Props = Pick<TypographyProps, 'variant' | 'paragraph'>;
 
 export default function LoremIpsum({ variant = 'body1', paragraph = false }: Props) {
   return (

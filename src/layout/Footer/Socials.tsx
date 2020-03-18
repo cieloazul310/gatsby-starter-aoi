@@ -65,7 +65,7 @@ function Socials() {
         </IconBox>
       ) : null}
       {youtube !== '' ? (
-        <IconBox href={`https://youtube.com/${youtube}`} title="YouTube">
+        <IconBox href={`https://youtube.com/user/${youtube}`} title="YouTube">
           <YoutubeIcon fontSize={fontSize} />
         </IconBox>
       ) : null}

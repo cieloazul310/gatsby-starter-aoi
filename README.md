@@ -1,8 +1,8 @@
-# gatsby-starter-aoi
+# Gatsby Starter Aoi
 
 > A starter kit for TypeScript-based Gatsby projects Material-UI.
 
-DEMO: https://cieloazul310.github.io/gatsby-starter-aoi/
+DEMO: <https://cieloazul310.github.io/gatsby-starter-aoi/>
 
 ## NOTE
 

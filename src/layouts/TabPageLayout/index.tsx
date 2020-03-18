@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Layout, { LayoutProps } from '../index';
+import Layout, { LayoutProps } from '../../layout';
 
 interface Props extends LayoutProps {
   tabSticky?: boolean;

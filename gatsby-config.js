@@ -1,3 +1,5 @@
+const blue = require('@material-ui/core/colors/blue').default;
+
 module.exports = {
   siteMetadata: {
     title: `Gatsby Starter Aoi`,
@@ -23,7 +25,22 @@ module.exports = {
   },
   pathPrefix: '/gatsby-starter-aoi',
   plugins: [
-    'gatsby-plugin-top-layout',
+    {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `Roboto`
+          }
+        ]
+      }
+    },
+    {
+      resolve: 'gatsby-plugin-aoi-top-layout',
+      options: {
+        siteId: 'gatsby-starter-aoi'
+      }
+    },
     {
       resolve: 'gatsby-plugin-canonical-urls',
       options: {
@@ -40,8 +57,8 @@ module.exports = {
         short_name: `Gatsby Aoi`,
         scope: '/gatsby-starter-aoi/',
         start_url: `/`,
-        background_color: `#f7f0eb`,
-        theme_color: `#009688`,
+        background_color: `#e3f2fd`,
+        theme_color: blue.main,
         display: `standalone`,
         icon: `src/assets/icon360.png`
       }
@@ -54,12 +71,6 @@ module.exports = {
     },
     {
       resolve: 'gatsby-plugin-material-ui',
-      // If you want to use styled components you should change the injection order.
-      options: {
-        // stylesProvider: {
-        //   injectFirst: true,
-        // },
-      }
     },
     `gatsby-plugin-react-helmet`,
     // Add typescript stack into webpack

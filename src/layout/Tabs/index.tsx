@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Box from '@material-ui/core/Box';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 
 interface StyleProps {
@@ -12,7 +11,7 @@ const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) =>
       position: tabSticky ? 'sticky' : null,
       top: tabSticky ? 56 : null,
       backgroundColor: tabSticky ? theme.palette.background.default : null,
-      zIndex: tabSticky ? theme.zIndex.drawer : null,
+      zIndex: tabSticky ? theme.zIndex.mobileStepper : null,
       boxShadow: tabSticky ? theme.shadows[1] : null,
       [theme.breakpoints.up('sm')]: {
         top: tabSticky ? 64 : null,
@@ -29,9 +28,9 @@ interface Props {
 function Tabs({ children, tabSticky = false }: Props) {
   const classes = useStyles({ tabSticky });
   return (
-    <Box className={classes.root}>
+    <div className={classes.root}>
       <nav>{children}</nav>
-    </Box>
+    </div>
   );
 }
 
