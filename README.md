@@ -42,3 +42,8 @@ yarn run format
 - [gatsby-starter-aoi-theme] A Gatsby starter kit using Gatsby Aoi Theme
 - [gatsby-theme-aoi] A Gatsby Theme
 - [gatsby-theme-aoi-top-layout] A plugin for Gatsby Aoi Theme
+
+[gatsby]: https://www.gatsbyjs.org/ 'Gatsby'
+[gatsby-theme-aoi-top-layout]: https://github.com/cieloazul310/gatsby-theme-aoi-top-layout/ 'Gatsby Theme Aoi Top Layout'
+[gatsby-starter-aoi-theme]: https://github.com/cieloazul310/gatsby-theme-aoi/ 'Gatsby Starter Aoi Theme'
+[gatsby-starter-aoi]: https://github.com/cieloazul310/gatsby-starter-aoi/ 'Gatsby Starter Aoi'
