@@ -6,7 +6,8 @@ module.exports = {
     description: 'A GatsbyJS starter using Material Design written with TypeScript.',
     keywords: ['Gatsby', 'Gatbsy Starter', 'TypeScript', 'Material-UI'],
     lang: '',
-    siteUrl: 'https://cieloazul310.github.io/gatsby-starter-aoi',
+    siteUrl: 'https://affectionate-jennings-359b42.netlify.com',
+    //siteUrl: 'https://cieloazul310.github.io/gatsby-starter-aoi',
     author: 'cieloazul310',
     social: {
       mail: 'mail@cieloazul310.com',
@@ -23,7 +24,7 @@ module.exports = {
       youtube: 'hollytube0310'
     }
   },
-  pathPrefix: '/gatsby-starter-aoi',
+  //pathPrefix: '/gatsby-starter-aoi',
   plugins: [
     {
       resolve: `gatsby-plugin-prefetch-google-fonts`,
@@ -44,12 +45,12 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-material-ui'
     },
-    {
+    /*{
       resolve: 'gatsby-plugin-canonical-urls',
       options: {
         siteUrl: 'https://cieloazul310.github.io'
       }
-    },
+    },*/
     `gatsby-plugin-graphql-codegen`,
     'gatsby-plugin-sitemap',
     'gatsby-plugin-offline',
@@ -58,7 +59,7 @@ module.exports = {
       options: {
         name: `Gatsby Starter Aoi`,
         short_name: `Gatsby Aoi`,
-        scope: '/gatsby-starter-aoi/',
+        //scope: '/gatsby-starter-aoi/',
         start_url: `/`,
         background_color: blue[50],
         theme_color: blue[600],
