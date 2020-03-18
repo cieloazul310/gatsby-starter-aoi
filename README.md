@@ -3,9 +3,9 @@
 A starter kit for TypeScript-based Gatsby projects Material-UI.
 
 DEMO: <https://cieloazul310.github.io/gatsby-starter-aoi/>  
-Netlify: <https://affectionate-jennings-359b42.netlify.com/>
+Netlify: <https://gatsby-starter-aoi.netlify.com/>
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/8df4a793-beb0-49ce-9806-ec90395bbbce/deploy-status)](https://app.netlify.com/sites/affectionate-jennings-359b42/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/8df4a793-beb0-49ce-9806-ec90395bbbce/deploy-status)](https://app.netlify.com/sites/gatsby-starter-aoi/deploys)
 
 ## NOTE
 
