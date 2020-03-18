@@ -839,6 +839,8 @@ export type QueryAllSitePageArgs = {
 export type QuerySiteArgs = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
+  port?: Maybe<IntQueryOperatorInput>;
+  host?: Maybe<StringQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -900,6 +902,8 @@ export type QueryAllSitePluginArgs = {
 export type Site = Node & {
   buildTime?: Maybe<Scalars['Date']>;
   siteMetadata?: Maybe<SiteSiteMetadata>;
+  port?: Maybe<Scalars['Int']>;
+  host?: Maybe<Scalars['String']>;
   pathPrefix?: Maybe<Scalars['String']>;
   polyfill?: Maybe<Scalars['Boolean']>;
   id: Scalars['ID'];
@@ -1117,6 +1121,8 @@ export type SiteFieldsEnum =
   'siteMetadata___social___instagram' |
   'siteMetadata___social___vimeo' |
   'siteMetadata___social___youtube' |
+  'port' |
+  'host' |
   'pathPrefix' |
   'polyfill' |
   'id' |
@@ -1209,6 +1215,8 @@ export type SiteFieldsEnum =
 export type SiteFilterInput = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
+  port?: Maybe<IntQueryOperatorInput>;
+  host?: Maybe<StringQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -1412,6 +1420,7 @@ export type SitePageFieldsEnum =
   'pluginCreator___pluginOptions___scope' |
   'pluginCreator___pluginOptions___start_url' |
   'pluginCreator___pluginOptions___background_color' |
+  'pluginCreator___pluginOptions___theme_color' |
   'pluginCreator___pluginOptions___display' |
   'pluginCreator___pluginOptions___icon' |
   'pluginCreator___pluginOptions___trackingId' |
@@ -1612,6 +1621,7 @@ export type SitePluginFieldsEnum =
   'pluginOptions___scope' |
   'pluginOptions___start_url' |
   'pluginOptions___background_color' |
+  'pluginOptions___theme_color' |
   'pluginOptions___display' |
   'pluginOptions___icon' |
   'pluginOptions___trackingId' |
@@ -1740,6 +1750,7 @@ export type SitePluginPluginOptions = {
   scope?: Maybe<Scalars['String']>;
   start_url?: Maybe<Scalars['String']>;
   background_color?: Maybe<Scalars['String']>;
+  theme_color?: Maybe<Scalars['String']>;
   display?: Maybe<Scalars['String']>;
   icon?: Maybe<Scalars['String']>;
   trackingId?: Maybe<Scalars['String']>;
@@ -1756,6 +1767,7 @@ export type SitePluginPluginOptionsFilterInput = {
   scope?: Maybe<StringQueryOperatorInput>;
   start_url?: Maybe<StringQueryOperatorInput>;
   background_color?: Maybe<StringQueryOperatorInput>;
+  theme_color?: Maybe<StringQueryOperatorInput>;
   display?: Maybe<StringQueryOperatorInput>;
   icon?: Maybe<StringQueryOperatorInput>;
   trackingId?: Maybe<StringQueryOperatorInput>;

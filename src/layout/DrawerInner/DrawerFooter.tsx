@@ -2,12 +2,12 @@ import * as React from 'react';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import MuiLink from '@material-ui/core/Link';
-import EMailIcon from '@material-ui/icons/EMail';
-import GithubIcon from '@material-ui/icons/Github';
+import EmailIcon from '@material-ui/icons/Email';
+import GitHubIcon from '@material-ui/icons/GitHub';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import InstagramIcon from '@material-ui/icons/Instagram';
-import YoutubeIcon from '@material-ui/icons/Youtube';
+import YouTubeIcon from '@material-ui/icons/YouTube';
 import { useSiteMetadata } from '../../graphql-hooks';
 
 function DrawerFooter() {
@@ -29,14 +29,14 @@ function DrawerFooter() {
         {social.mail ? (
           <Box mr={1} component="span">
             <MuiLink href={`mailto:${social.mail}`} target="_blank" rel="noopener noreferrer" color="inherit" title="Email">
-              <EMailIcon />
+              <EmailIcon />
             </MuiLink>
           </Box>
         ) : null}
         {social.github ? (
           <Box mr={1} component="span">
             <MuiLink href={`https://github.com/${social.github}`} target="_blank" rel="noopener noreferrer" color="inherit" title="GitHub">
-              <GithubIcon />
+              <GitHubIcon />
             </MuiLink>
           </Box>
         ) : null}
@@ -88,7 +88,7 @@ function DrawerFooter() {
               color="inherit"
               title="Youtube"
             >
-              <YoutubeIcon />
+              <YouTubeIcon />
             </MuiLink>
           </Box>
         ) : null}
