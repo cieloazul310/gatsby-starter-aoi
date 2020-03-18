@@ -6,8 +6,7 @@ module.exports = {
     description: 'A GatsbyJS starter using Material Design written with TypeScript.',
     keywords: ['Gatsby', 'Gatbsy Starter', 'TypeScript', 'Material-UI'],
     lang: '',
-    siteUrl: 'https://affectionate-jennings-359b42.netlify.com',
-    //siteUrl: 'https://cieloazul310.github.io/gatsby-starter-aoi',
+    siteUrl: 'https://gatsby-starter-aoi.netlify.com',
     author: 'cieloazul310',
     social: {
       mail: 'mail@cieloazul310.com',
@@ -24,7 +23,6 @@ module.exports = {
       youtube: 'hollytube0310'
     }
   },
-  //pathPrefix: '/gatsby-starter-aoi',
   plugins: [
     {
       resolve: `gatsby-plugin-prefetch-google-fonts`,
