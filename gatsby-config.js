@@ -60,8 +60,8 @@ module.exports = {
         short_name: `Gatsby Aoi`,
         scope: '/gatsby-starter-aoi/',
         start_url: `/`,
-        background_color: `#e3f2fd`,
-        theme_color: blue.main,
+        background_color: blue[50],
+        theme_color: blue[600],
         display: `standalone`,
         icon: `src/assets/icon360.png`
       }
