@@ -6,7 +6,7 @@ module.exports = {
     description: 'A GatsbyJS starter using Material Design written with TypeScript.',
     keywords: ['Gatsby', 'Gatbsy Starter', 'TypeScript', 'Material-UI'],
     lang: '',
-    siteUrl: 'https://cieloazul310.github.io/gatsby-starter-aoi/',
+    siteUrl: 'https://cieloazul310.github.io/gatsby-starter-aoi',
     author: 'cieloazul310',
     social: {
       mail: 'mail@cieloazul310.com',
@@ -42,6 +42,9 @@ module.exports = {
       }
     },
     {
+      resolve: 'gatsby-plugin-material-ui'
+    },
+    {
       resolve: 'gatsby-plugin-canonical-urls',
       options: {
         siteUrl: 'https://cieloazul310.github.io'
@@ -68,9 +71,6 @@ module.exports = {
       options: {
         trackingId: 'UA-74683419-3'
       }
-    },
-    {
-      resolve: 'gatsby-plugin-material-ui',
     },
     `gatsby-plugin-react-helmet`,
     // Add typescript stack into webpack
