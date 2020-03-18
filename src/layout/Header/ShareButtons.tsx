@@ -3,7 +3,7 @@ import IconButton, { IconButtonProps } from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import FacebookIcon from '@material-ui/icons/Facebook';
-import GithubIcon from '@material-ui/icons/Github';
+import GitHubIcon from '@material-ui/icons/GitHub';
 import { useSiteMetadata } from '../../graphql-hooks';
 import useSocialShare from '../../utils/useSocialShare';
 import useUpdateOnClient from '../../utils/useUpdateOnClient';
@@ -38,7 +38,7 @@ function ShareButtons({ title, color = 'default' }: Props) {
             rel="noopener noreferrer"
             aria-label="GitHub"
           >
-            <GithubIcon />
+            <GitHubIcon />
           </IconButton>
         </Tooltip>
       ) : null}
