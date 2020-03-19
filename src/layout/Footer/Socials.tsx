@@ -1,12 +1,12 @@
 import * as React from 'react';
 import Box from '@material-ui/core/Box';
 import Link from '@material-ui/core/Link';
-import EMailIcon from '@material-ui/icons/EMail';
+import EmailIcon from '@material-ui/icons/Email';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import FacebookIcon from '@material-ui/icons/Facebook';
-import GithubIcon from '@material-ui/icons/Github';
+import GitHubIcon from '@material-ui/icons/GitHub';
 import InstagramIcon from '@material-ui/icons/Instagram';
-import YoutubeIcon from '@material-ui/icons/Youtube';
+import YouTubeIcon from '@material-ui/icons/YouTube';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import { faGitlab, faMedium, faTumblr, faGetPocket, faVimeo } from '@fortawesome/free-brands-svg-icons';
 import FabIcon from '../../components/FabIcon';
@@ -36,12 +36,12 @@ function Socials() {
     <Box py={1} textAlign="center" component="address" display="flex" justifyContent="center" flexWrap="wrap">
       {mail !== '' ? (
         <IconBox href={`mailto:${mail}`} title="E-Mail">
-          <EMailIcon fontSize={fontSize} />
+          <EmailIcon fontSize={fontSize} />
         </IconBox>
       ) : null}
       {github !== '' ? (
         <IconBox href={`https://github.com/${github}`} title="GitHub">
-          <GithubIcon fontSize={fontSize} />
+          <GitHubIcon fontSize={fontSize} />
         </IconBox>
       ) : null}
       {gitlab !== '' ? (
@@ -66,7 +66,7 @@ function Socials() {
       ) : null}
       {youtube !== '' ? (
         <IconBox href={`https://youtube.com/user/${youtube}`} title="YouTube">
-          <YoutubeIcon fontSize={fontSize} />
+          <YouTubeIcon fontSize={fontSize} />
         </IconBox>
       ) : null}
       {tumblr !== '' ? (
