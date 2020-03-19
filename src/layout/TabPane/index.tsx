@@ -11,18 +11,13 @@ type Props = {
 
 function TabPane({ index, value, children, maxWidth = 'md', ...props }: Props) {
   return (
-    <Container
-      maxWidth={maxWidth}
-      role="tabpanel"
-      hidden={value !== index}
-      id={`full-width-tabpanel-${index}`}
-      aria-labelledby={`full-width-tab-${index}`}
-      {...props}
-    >
-      <Box py={2} minHeight="80vh">
-        {value === index ? children : null}
-      </Box>
-    </Container>
+    <div role="tabpanel" hidden={value !== index} id={`full-width-tabpanel-${index}`} aria-labelledby={`full-width-tab-${index}`}>
+      <Container maxWidth={maxWidth} {...props}>
+        <Box py={2} minHeight="80vh">
+          {value === index ? children : null}
+        </Box>
+      </Container>
+    </div>
   );
 }
 
