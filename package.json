@@ -46,27 +46,8 @@
     "develop": "gatsby develop -o -H 0.0.0.0",
     "serve": "gatsby serve -o -H 0.0.0.0 --prefix-paths",
     "clean": "gatsby clean",
-    "deploy": "gh-pages -d public",
-    "format": "prettier --parser typescript --trailing-comma es5 --single-quote --write \"src/**/*.ts*\"",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "@babel/core": "^7.4.5",
-    "@storybook/addon-actions": "^5.1.9",
-    "@storybook/addon-info": "^5.1.9",
-    "@storybook/addon-links": "^5.1.9",
-    "@storybook/addons": "^5.1.9",
-    "@storybook/react": "^5.1.9",
-    "@types/storybook__react": "^5.2.1",
-    "babel-loader": "^8.0.6",
-    "gh-pages": "^2.0.1",
-    "prettier": "^1.8.2",
-    "react-docgen-typescript-loader": "^3.1.0",
-    "ts-loader": "^6.0.4",
-    "tslint": "^6.0.0",
-    "tslint-config-prettier": "^1.18.0",
-    "tslint-plugin-prettier": "^2.0.1"
   }
 }

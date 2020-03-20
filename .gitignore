@@ -10,3 +10,8 @@ yarn-error.log
 
 # graphql-codegen
 graphql-types.ts
+
+.storybook
+stories
+tsconfig.json
+tslint.json
