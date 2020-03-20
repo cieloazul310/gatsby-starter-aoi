@@ -5,7 +5,6 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import { ComponentViewports } from '../../utils/layoutViewports';
-import { navigate } from '@reach/router';
 
 interface Props {
   componentViewports: ComponentViewports;
@@ -14,8 +13,9 @@ interface Props {
 
 function ButtonLeft({ toggleDrawer, componentViewports: { SwipeableDrawer, PermanentDrawer } }: Props) {
   const showMenuButton = SwipeableDrawer !== false && PermanentDrawer === false;
-  const _onBackButtonClick = () => {
-    navigate(-1);
+  const _onBackButtonClick = (event: React.MouseEvent) => {
+    event.preventDefault();
+    history.back();
   };
   return (
     <>
