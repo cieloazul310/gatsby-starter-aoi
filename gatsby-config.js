@@ -20,8 +20,8 @@ module.exports = {
       tumblr: 'cieloazul310',
       instagram: 'mito.hollyhock.official',
       vimeo: 'cieloazul310',
-      youtube: 'hollytube0310'
-    }
+      youtube: 'hollytube0310',
+    },
   },
   pathPrefix: '/gatsby-starter-aoi',
   plugins: [
@@ -30,25 +30,31 @@ module.exports = {
       options: {
         fonts: [
           {
-            family: `Roboto`
-          }
-        ]
-      }
+            family: `Roboto`,
+          },
+        ],
+      },
     },
     {
       resolve: 'gatsby-plugin-aoi-top-layout',
       options: {
-        siteId: 'gatsby-starter-aoi'
-      }
+        siteId: 'gatsby-starter-aoi',
+      },
     },
     {
-      resolve: 'gatsby-plugin-material-ui'
+      resolve: 'gatsby-plugin-material-ui',
     },
     {
       resolve: 'gatsby-plugin-canonical-urls',
       options: {
-        siteUrl: 'https://cieloazul310.github.io'
-      }
+        siteUrl: 'https://cieloazul310.github.io',
+      },
+    },
+    {
+      resolve: `gatsby-plugin-eslint`,
+      options: {
+        test: /\.js$|\.jsx$|\.ts$|\.tsx$/,
+      },
     },
     `gatsby-plugin-graphql-codegen`,
     'gatsby-plugin-sitemap',
@@ -63,17 +69,17 @@ module.exports = {
         background_color: blue[50],
         theme_color: blue[600],
         display: `standalone`,
-        icon: `src/assets/icon360.png`
-      }
+        icon: `src/assets/icon360.png`,
+      },
     },
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
-        trackingId: 'UA-74683419-3'
-      }
+        trackingId: 'UA-74683419-3',
+      },
     },
     `gatsby-plugin-react-helmet`,
     // Add typescript stack into webpack
-    `gatsby-plugin-typescript`
-  ]
+    `gatsby-plugin-typescript`,
+  ],
 };

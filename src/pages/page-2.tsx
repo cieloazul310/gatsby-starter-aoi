@@ -18,7 +18,7 @@ import { AppState } from '../utils/AppState';
 function SecondPage() {
   const { count, tab } = useAppState();
   const dispatch = useDispatch();
-  const _handleChangeTab = (event: React.ChangeEvent<{}>, newValue: AppState['tab']) => {
+  const _handleChangeTab = (event: React.ChangeEvent<unknown>, newValue: AppState['tab']) => {
     dispatch({ type: 'SET_TAB', index: newValue });
   };
   const _handleChangeIndex = (index: AppState['tab']) => {

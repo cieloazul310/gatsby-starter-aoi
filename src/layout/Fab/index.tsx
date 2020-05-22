@@ -8,7 +8,12 @@ interface Props {
   onClick?: () => void;
 }
 
-function FloationActionButton({ className, onClick = () => {} }: Props) {
+function FloationActionButton({
+  className,
+  onClick = () => {
+    // do nothing
+  },
+}: Props) {
   return (
     <Tooltip title="Menu" placement="top">
       <Fab className={className} onClick={onClick} color="secondary">

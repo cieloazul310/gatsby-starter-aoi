@@ -15,7 +15,7 @@ function ButtonLeft({ toggleDrawer, componentViewports: { SwipeableDrawer, Perma
   const showMenuButton = SwipeableDrawer !== false && PermanentDrawer === false;
   const _onBackButtonClick = (event: React.MouseEvent) => {
     event.preventDefault();
-    history.back();
+    if (window) window.history.back();
   };
   return (
     <>
