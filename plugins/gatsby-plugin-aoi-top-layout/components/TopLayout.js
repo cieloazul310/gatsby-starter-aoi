@@ -7,11 +7,7 @@ import ThemeDispatchContext from '../../../src/utils/ThemeStateContext';
 import themeReducer from '../../../src/utils/ThemeState';
 import initialTheme from '../../../src/utils/theme';
 
-export default function TopLayout({
-  children,
-  storedItem,
-  siteId
-}) {
+export default function TopLayout({ children, storedItem, siteId }) {
   const defaultPaletteType = initialTheme.palette.type;
   const storedPaletteType = storedItem !== null ? storedItem.paletteType : defaultPaletteType;
   const storedUseSystemTheme = storedItem !== null ? storedItem.useSystemTheme : false;
@@ -19,7 +15,7 @@ export default function TopLayout({
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
   const [themeState, themeDispatch] = React.useReducer(themeReducer, {
     darkMode: storedPaletteType === 'dark',
-    useSystemTheme: storedUseSystemTheme || false
+    useSystemTheme: storedUseSystemTheme || false,
   });
   const { darkMode, useSystemTheme } = themeState;
   const paletteType = useSystemTheme ? (prefersDarkMode ? 'dark' : 'light') : darkMode ? 'dark' : 'light';
@@ -30,7 +26,7 @@ export default function TopLayout({
       siteId,
       JSON.stringify({
         paletteType: darkMode ? 'dark' : 'light',
-        useSystemTheme
+        useSystemTheme,
       })
     );
   }, [siteId, darkMode, useSystemTheme]);
