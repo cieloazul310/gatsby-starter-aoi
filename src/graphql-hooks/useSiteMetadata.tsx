@@ -29,5 +29,5 @@ export function useSiteMetadata() {
       }
     }
   `);
-  return site.siteMetadata;
+  return site && site.siteMetadata ? site.siteMetadata : null;
 }
