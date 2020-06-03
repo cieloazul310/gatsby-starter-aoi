@@ -1,11 +1,10 @@
 import { Theme } from '@material-ui/core/styles';
 import { Breakpoint } from '@material-ui/core/styles/createBreakpoints';
 import { HiddenProps } from '@material-ui/core/Hidden';
+import { CSSProperties } from '@material-ui/core/styles/withStyles';
 
 const breakpoints: Breakpoint[] = ['xs', 'sm', 'md', 'lg', 'xl'];
 
-//type HiddenPropsKeys = keyof HiddenProps;
-//type Viewport = Exclude<HiddenPropsKeys, ('implementation' | 'initialWidth' | 'only')>;
 export type Viewport = 'xsDown' | 'xsUp' | 'smDown' | 'smUp' | 'mdDown' | 'mdUp' | 'lgDown' | 'lgUp' | 'xlDown' | 'xlUp';
 export type ViewDirection = 'Up' | 'Down';
 export type Viewports = Viewport | boolean;
@@ -38,10 +37,18 @@ export function mergeViewports(componentViewports: Partial<ComponentViewports>):
       }
     : defaultComponentViewports;
 
-  function pickViewports(key: 'SwipeableDrawer' | 'PermanentDrawer' | 'BottomNav' | 'Fab') {
-    return componentViewports.hasOwnProperty(key) && componentViewports[key] !== null
-      ? componentViewports[key]
-      : defaultComponentViewports[key];
+  function pickViewports(key: 'SwipeableDrawer' | 'PermanentDrawer' | 'BottomNav' | 'Fab'): Viewports {
+    if (!componentViewports.hasOwnProperty(key)) {
+      return defaultComponentViewports[key];
+    } else {
+      const viewports = componentViewports[key];
+      if (viewports === undefined) return defaultComponentViewports[key];
+      if (typeof viewports === 'boolean') {
+        return viewports ? 'xsUp' : 'xsDown';
+      } else {
+        return viewports;
+      }
+    }
   }
 }
 
@@ -53,7 +60,7 @@ export function mergeViewports(componentViewports: Partial<ComponentViewports>):
  */
 
 export function viewportsToHidden(viewports: Viewports): HiddenProps {
-  if (viewports === true || viewports === 'xsUp' || viewports === 'xlDown') return null;
+  if (viewports === true || viewports === 'xsUp' || viewports === 'xlDown') return {};
   if (viewports === false) return { xsUp: true };
   const breakpoint: Breakpoint = breakpointSlicer(viewports);
   const direction: ViewDirection = directionSlicer(viewports);
@@ -72,7 +79,7 @@ export function viewportsToHidden(viewports: Viewports): HiddenProps {
  *
  */
 
-export function contentWidthStyles(permanentDrawerViewports: Viewports, theme: Theme, drawerWidth: number, styles: any = {}) {
+export function contentWidthStyles(permanentDrawerViewports: Viewports, theme: Theme, drawerWidth: number, styles: CSSProperties = {}) {
   if (permanentDrawerViewports === true || permanentDrawerViewports === 'xlDown' || permanentDrawerViewports === 'xsUp')
     return {
       ...styles,
@@ -96,7 +103,7 @@ export function contentWidthStyles(permanentDrawerViewports: Viewports, theme: T
   };
 }
 
-export function permanentDrawerStyles(permanentDrawerViewports: Viewports, theme: Theme, drawerWidth: number, styles: any = {}) {
+export function permanentDrawerStyles(permanentDrawerViewports: Viewports, theme: Theme, drawerWidth: number, styles: CSSProperties = {}) {
   // ex. "mdUp"
   if (permanentDrawerViewports === true || permanentDrawerViewports === 'xlDown' || permanentDrawerViewports === 'xsUp')
     return {
@@ -120,7 +127,7 @@ export function permanentDrawerStyles(permanentDrawerViewports: Viewports, theme
   };
 }
 
-export function mainStyles(bottomNavViewports: Viewports, theme: Theme, styles: any = {}) {
+export function mainStyles(bottomNavViewports: Viewports, theme: Theme, styles: CSSProperties = {}) {
   // ex. "xsDown"
   if (bottomNavViewports === true || bottomNavViewports === 'xlDown' || bottomNavViewports === 'xsUp')
     return {
@@ -140,7 +147,7 @@ export function mainStyles(bottomNavViewports: Viewports, theme: Theme, styles: 
   };
 }
 
-export function fabStyles(bottomNavViewports: Viewports, theme: Theme, styles: any = {}) {
+export function fabStyles(bottomNavViewports: Viewports, theme: Theme, styles: CSSProperties = {}) {
   // ex. "xsDown"
   if (bottomNavViewports === true || bottomNavViewports === 'xlDown' || bottomNavViewports === 'xsUp')
     return {
@@ -162,17 +169,18 @@ export function fabStyles(bottomNavViewports: Viewports, theme: Theme, styles: a
 
 function breakpointSlicer(viewports: Viewport): Breakpoint {
   const breakpoint = viewports.slice(0, 2);
-  return breakpoint === 'xs' || breakpoint === 'sm' || breakpoint === 'md' || breakpoint === 'lg' || breakpoint === 'xl'
-    ? breakpoint
-    : null;
+  if (breakpoint === 'xs' || breakpoint === 'sm' || breakpoint === 'md' || breakpoint === 'lg' || breakpoint === 'xl') return breakpoint;
+  throw new Error();
 }
 function directionSlicer(viewports: Viewport): ViewDirection {
   const direction = viewports.slice(2);
-  return direction === 'Up' || direction === 'Down' ? direction : null;
+  if (direction === 'Up' || direction === 'Down') return direction;
+  throw new Error();
 }
 
 function checkIsViewport(str: string): Viewport {
-  return str === 'xsDown' ||
+  if (
+    str === 'xsDown' ||
     str === 'xsUp' ||
     str === 'smDown' ||
     str === 'smUp' ||
@@ -182,6 +190,7 @@ function checkIsViewport(str: string): Viewport {
     str === 'lgDown' ||
     str === 'xlUp' ||
     str === 'xlDown'
-    ? str
-    : null;
+  )
+    return str;
+  throw new Error();
 }

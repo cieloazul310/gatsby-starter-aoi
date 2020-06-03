@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 interface Props {
-  handleDrawer: () => any;
+  handleDrawer: () => void;
   contents?: JSX.Element | JSX.Element[] | (JSX.Element | JSX.Element[])[];
   title?: string;
 }

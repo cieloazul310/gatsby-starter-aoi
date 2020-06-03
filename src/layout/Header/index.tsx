@@ -13,8 +13,8 @@ import ButtonRight from './ButtonRight';
 const useStyles = makeStyles<Theme>((theme: Theme) =>
   createStyles({
     root: {
-      backgroundColor: theme.palette.type === 'dark' ? '#222' : null,
-      color: theme.palette.type === 'dark' ? theme.palette.text.primary : null,
+      backgroundColor: theme.palette.type === 'dark' ? '#222' : undefined,
+      color: theme.palette.type === 'dark' ? theme.palette.text.primary : undefined,
     },
     title: {
       lineHeight: 1.2,
@@ -31,10 +31,17 @@ interface Props {
   className: string;
   title: string;
   componentViewports: ComponentViewports;
-  toggleDrawer?: () => any;
+  toggleDrawer?: () => void;
 }
 
-function Header({ className, title, componentViewports, toggleDrawer }: Props) {
+function Header({
+  className,
+  title,
+  componentViewports,
+  toggleDrawer = () => {
+    // do nothing
+  },
+}: Props) {
   const classes = useStyles();
   const siteMetadata = useSiteMetadata();
   return (
@@ -43,7 +50,7 @@ function Header({ className, title, componentViewports, toggleDrawer }: Props) {
         <ButtonLeft componentViewports={componentViewports} toggleDrawer={toggleDrawer} />
         <Box flex="1" px={1}>
           <Typography className={classes.title} variant="h6" component="h1" color="inherit">
-            {title || siteMetadata.title}
+            {siteMetadata && siteMetadata.title ? siteMetadata.title : title}
           </Typography>
         </Box>
         <ButtonRight title={title} />
