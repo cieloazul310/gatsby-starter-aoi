@@ -10,7 +10,7 @@ import { useLocation } from '@reach/router';
 function BottomNav() {
   const { pathname } = useLocation();
   const _onChange = (event: React.ChangeEvent<unknown>, value: string) => {
-    navigate(value.replace(withPrefix(''), ''));
+    navigate(value.replace(withPrefix('/'), '/'));
   };
   return (
     <BottomNavigation value={pathname} onChange={_onChange} showLabels>
